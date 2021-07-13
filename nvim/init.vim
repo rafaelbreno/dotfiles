@@ -14,3 +14,6 @@ let g:loaded_matchit      = 1
 let g:loaded_matchparen   = 1
 let g:loaded_spec         = 1
 
+
+" importing lua scripts
+runtime! lua/modules/keymaps.lua
