@@ -19,3 +19,4 @@ let g:loaded_spec         = 1
 runtime! lua/modules/keymaps.lua
 runtime! lua/modules/options.lua
 runtime! lua/modules/util.lua
+runtime! lua/modules/mapping.vim
