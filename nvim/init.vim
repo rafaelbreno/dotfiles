@@ -20,3 +20,4 @@ runtime! lua/modules/keymaps.lua
 runtime! lua/modules/options.lua
 runtime! lua/modules/util.lua
 runtime! lua/modules/mapping.vim
+runtime! lua/modules/statusline.lua
