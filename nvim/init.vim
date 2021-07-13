@@ -17,3 +17,4 @@ let g:loaded_spec         = 1
 
 " importing lua scripts
 runtime! lua/modules/keymaps.lua
+runtime! lua/modules/options.lua
