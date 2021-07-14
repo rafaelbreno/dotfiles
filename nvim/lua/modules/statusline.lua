@@ -114,11 +114,11 @@ end
 
 M.get_filetype = function()
   local file_name, file_ext = fn.expand "%:t", fn.expand "%:e"
-  local icon = require("nvim-web-devicons").get_icon(
-    file_name,
-    file_ext,
-    { default = true }
-  )
+  --local icon = require("nvim-web-devicons").get_icon(
+    --file_name,
+    --file_ext,
+    --{ default = true }
+  --)
   local filetype = vim.bo.filetype
 
   if filetype == "" then

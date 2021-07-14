@@ -109,9 +109,9 @@ Util.borders = {
   -- {"█", "Bordaa"}
 }
 
-Util.lsp_on_attach = function()
-  require("modules.lsp.mappings").lsp_mappings()
-end
+--Util.lsp_on_attach = function()
+  --require("modules.lsp.mappings").lsp_mappings()
+--end
 
 Util.lsp_on_init = function()
   print "Language Server Client successfully started!"
