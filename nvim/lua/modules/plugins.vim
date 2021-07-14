@@ -36,6 +36,9 @@ Plug 'preservim/nerdcommenter'
 " Go:
 Plug 'fatih/vim-go'
 
+" OCaml:
+Plug 'ocaml/vim-ocaml'
+
 " ----------------------------------------------------------------
 
 call plug#end()
@@ -44,7 +47,7 @@ call plug#end()
 
 " COC plugins
 let g:coc_global_extensions = [ 'coc-go', 'coc-json' ]
-"let g:coc_global_extensions += []
+let g:coc_global_extensions += [ 'coc-ocaml' ]
 
 " LazyGit
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
