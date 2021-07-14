@@ -4,6 +4,11 @@
       "command": "gopls",
       "rootPatterns": [ "go.mod", ".git/", "*.go" ],
       "filetypes": [ "go" ]
+    },
+    "ocaml":{
+      "command": "ocaml-languageserver",
+      "args": [ "--stdio" ],
+      "filetypes": [ "ocaml", "reason" ]
     }
   }
 }
