@@ -54,15 +54,6 @@ nnoremap q: <Nop>
 " copy to system clipboard
 vnoremap <A-y> "+y
 
-" rl stands for `run lua`
-nnoremap <Leader>rl <CMD>luafile %<CR>
-
-" rn stands for `run node`
-nnoremap <Leader>rn <CMD>!node %<CR>
-
-" rd stands for `run deno`
-nnoremap <Leader>rd <CMD>!NO_COLOR=true deno run %<CR>
-
 " toggle hlsearch
 nnoremap <Leader>n <CMD>nohl<CR>
 
@@ -72,10 +63,6 @@ nmap <silent><leader>rh :let @/=""<cr>
 " Enter Visual mode
 nnoremap <leader>lv <S-v>
 nnoremap <leader>v <C-v>
-
-"noremap <Leader>v
-      "\ :exe "vnew"<CR>
-      "\ :exe "setlocal buftype=nofile bufhidden=hide"<CR>
 
 " Highlights code for multiple indents without reselecting
 " better indenting experience
