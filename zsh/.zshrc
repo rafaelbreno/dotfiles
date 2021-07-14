@@ -6,18 +6,14 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # NVIM init.vim path
-export XDG_CONFIG_HOME="/home/rafa/.config/dotfiles/"
+export XDG_CONFIG_HOME="$HOME/.config/dotfiles/"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/rafa/.oh-my-zsh"
-
-# Path to custom bin
-export PATH=/home/rafa/bin:$PATH
 
 # Kubectl autocomplete
-autoload -Uz compinit
-compinit
-source <(kubectl completion zsh)
+#autoload -Uz compinit
+#compinit
+#source <(kubectl completion zsh)
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -115,7 +111,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-. /home/rafa/Programs/asdf/asdf.sh
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/bin

@@ -1,5 +1,5 @@
 " installing plugins
-call plug#begin('/home/rafa/.config/dotfiles/nvim/plugged')
+call plug#begin("$HOME/.config/dotfiles/nvim/plugged")
 
 """ Themes
 " Gruvbox:
