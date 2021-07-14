@@ -69,9 +69,13 @@ nnoremap <Leader>n <CMD>nohl<CR>
 "Remove Highlight
 nmap <silent><leader>rh :let @/=""<cr>
 
-noremap <Leader>v
-      \ :exe "vnew"<CR>
-      \ :exe "setlocal buftype=nofile bufhidden=hide"<CR>
+" Enter Visual mode
+nnoremap <leader>lv <S-v>
+nnoremap <leader>v <C-v>
+
+"noremap <Leader>v
+      "\ :exe "vnew"<CR>
+      "\ :exe "setlocal buftype=nofile bufhidden=hide"<CR>
 
 " Highlights code for multiple indents without reselecting
 " better indenting experience
