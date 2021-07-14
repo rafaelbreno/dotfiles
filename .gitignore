@@ -1,3 +1,5 @@
 coc/
 nvim/plugged/
 lazygit/
+configstore/
+abrt/
