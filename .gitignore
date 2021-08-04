@@ -3,3 +3,17 @@
 
 # Exceptions
 !.gitignore
+
+!neofetch/
+
+# NVIM
+!nvim/lua/*
+!nvim/spell/*
+!nvim/init.vim
+!nvim/coc-settings.json
+
+# ZSH
+!zsh/
+
+# Misc
+!README.md
