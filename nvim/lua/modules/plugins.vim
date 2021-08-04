@@ -23,8 +23,14 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" NVIM-LSP
+Plug 'neovim/nvim-lspconfig'
+
+" Completion
+Plug 'nvim-lua/completion-nvim'
+
 " LSP coc.nvim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Nerd:
 Plug 'scrooloose/nerdtree'
@@ -57,3 +63,7 @@ let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not inst
 
 " Theme
 colorscheme gruvbox
+
+" Completion
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
