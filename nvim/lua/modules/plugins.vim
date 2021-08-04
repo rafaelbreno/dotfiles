@@ -29,8 +29,9 @@ Plug 'neovim/nvim-lspconfig'
 " Completion
 Plug 'nvim-lua/completion-nvim'
 
-" LSP coc.nvim
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" CodeSnippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Nerd:
 Plug 'scrooloose/nerdtree'
@@ -66,4 +67,10 @@ colorscheme gruvbox
 
 " Completion
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+
+" Snippets
+let g:completion_enable_snippet = 'UltiSnips'
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
 
