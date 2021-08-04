@@ -18,9 +18,6 @@ tnoremap <Left>  <C-\><C-n>:vertical resize +2<CR>
 tnoremap <Right> <C-\><C-n>:vertical resize -2<CR>
 tnoremap <Up>    <C-\><C-n>:resize   +2<CR>
 tnoremap <Down>  <C-\><C-n>:resize   -2<CR>
-" move buffer
-tnoremap <A-h> <C-\><C-n>:bp<CR>
-tnoremap <A-l> <C-\><C-n>:bn<CR>
 " go to normal mode using double esc
 tnoremap <Esc><Esc> <C-\\><C-n>
 
@@ -35,10 +32,6 @@ nnoremap <Left>  <CMD>vertical resize +2<CR>
 nnoremap <Right> <CMD>vertical resize -2<CR>
 nnoremap <Up>    <CMD>resize   +2<CR>
 nnoremap <Down>  <CMD>resize   -2<CR>
-
-" buffer movements
-noremap <A-h> <CMD>bp<CR>
-noremap <A-l> <CMD>bn<CR>
 
 " move vertically by visual line on wrapped lines
 nnoremap j gj
