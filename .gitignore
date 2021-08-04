@@ -1,5 +1,2 @@
-coc/
-nvim/plugged/
-lazygit/
-configstore/
-abrt/
+# ignore everything
+/*
