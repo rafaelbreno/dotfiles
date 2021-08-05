@@ -7,7 +7,7 @@
 !neofetch/
 
 # NVIM
-!nvim/lua/*
+!nvim/lua/**/*
 !nvim/spell/*
 !nvim/init.vim
 !nvim/coc-settings.json
@@ -17,3 +17,7 @@
 
 # Misc
 !README.md
+
+# Fonts
+!fonts/
+

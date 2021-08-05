@@ -11,6 +11,12 @@ Plug 'morhetz/gruvbox'
 " Auto close {[()]}
 Plug 'jiangmiao/auto-pairs'
 
+" Status Line
+Plug 'glepnir/galaxyline.nvim'
+
+" Icons
+Plug 'kyazdani42/nvim-web-devicons'
+
 " Git TIU
 Plug 'kdheepak/lazygit.nvim'
 

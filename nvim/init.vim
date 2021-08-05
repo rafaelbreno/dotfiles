@@ -23,3 +23,4 @@ runtime! lua/modules/util.lua
 runtime! lua/modules/mapping.vim
 runtime! lua/modules/statusline.lua
 runtime! lua/modules/lsp.vim
+runtime! lua/modules/eviline.lua

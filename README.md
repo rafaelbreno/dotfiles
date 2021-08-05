@@ -12,3 +12,10 @@
 - > :TSInstall go
 - > :TSInstall ocaml
 - > :TSInstall ...
+
+### Fonts
+- > mkdir ~/.local/share/fonts
+- > cp fonts/nerd-fonts/patched-fonts/VictorMono/Regular/complete/*.ttf ~/.local/share/fonts
+- > fc-cache -f -v
+- > fc-list | grep "Victor"
+- Then edit the Terminal profile
