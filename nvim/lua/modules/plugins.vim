@@ -12,7 +12,8 @@ Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
 
 " Status Line
-Plug 'glepnir/galaxyline.nvim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Icons
 Plug 'kyazdani42/nvim-web-devicons'
@@ -79,6 +80,7 @@ let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 " Snippets
 let g:completion_enable_snippet = 'UltiSnips'
+let g:UltiSnipsExpandTrigger="<enter>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
@@ -90,3 +92,7 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+
+" Vim Airline
+let g:airline_theme='minimalist'
+
