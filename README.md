@@ -7,3 +7,8 @@
 ### Language Server
 - OCaml
   - > npm install -g ocaml-language-server
+
+### TreeSitter
+- > :TSInstall go
+- > :TSInstall ocaml
+- > :TSInstall ...
