@@ -39,6 +39,9 @@ Plug 'neovim/nvim-lspconfig'
 " Completion
 Plug 'nvim-lua/completion-nvim'
 
+" Lint Engine
+Plug 'dense-analysis/ale'
+
 " CodeSnippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -72,15 +75,32 @@ let g:lazygit_floating_window_scaling_factor = 0.9 " scaling factor for floating
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
 let g:lazygit_use_neovim_remote = 1 " fallback to 0 if neovim-remote is not installed
 
+" VimGo
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_fmt_command = "goimports"
+
 " Theme
 colorscheme gruvbox
 
 " Completion
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+" Lint Engine
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:airline#extensions#ale#enabled = 1
+
 " Snippets
 let g:completion_enable_snippet = 'UltiSnips'
-let g:UltiSnipsExpandTrigger="<enter>"
+let g:UltiSnipsExpandTrigger="<s-enter>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
