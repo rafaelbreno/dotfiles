@@ -34,17 +34,22 @@ Plug 'junegunn/fzf.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 " NVIM-LSP
-Plug 'neovim/nvim-lspconfig'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neovim/nvim-lspconfig'
+" Install nvim-cmp
+"Plug 'hrsh7th/nvim-cmp'
 
-" Completion
-Plug 'nvim-lua/completion-nvim'
+"" Install snippet engine (This example installs [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip))
+"Plug 'hrsh7th/vim-vsnip'
 
-" Lint Engine
-Plug 'dense-analysis/ale'
+"" Install the buffer completion source
+"Plug 'hrsh7th/cmp-buffer'
 
-" CodeSnippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"" Package Manager
+"Plug 'wbthomason/packer.nvim'
+
+"" Snippet Engine
+"Plug 'L3MON4D3/LuaSnip'
 
 " Nerd:
 Plug 'scrooloose/nerdtree'
@@ -58,6 +63,14 @@ Plug 'fatih/vim-go'
 
 " OCaml:
 Plug 'ocaml/vim-ocaml'
+
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
+Plug 'cespare/vim-toml'
+
+" Elixir
+Plug 'elixir-editors/vim-elixir'
 
 " ----------------------------------------------------------------
 
@@ -98,6 +111,7 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 
+
 " Snippets
 let g:completion_enable_snippet = 'UltiSnips'
 let g:UltiSnipsExpandTrigger="<s-enter>"
@@ -115,4 +129,3 @@ EOF
 
 " Vim Airline
 let g:airline_theme='minimalist'
-
