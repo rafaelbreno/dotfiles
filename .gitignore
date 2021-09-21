@@ -7,7 +7,7 @@
 !neofetch/
 
 # NVIM
-!nvim/lua/**/*
+!nvim/lua/modules/*
 !nvim/spell/*
 !nvim/init.vim
 !nvim/coc-settings.json
