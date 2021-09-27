@@ -24,3 +24,4 @@ runtime! lua/modules/mapping.vim
 runtime! lua/modules/statusline.lua
 runtime! lua/modules/lsp.lua
 runtime! lua/modules/config.vim
+runtime! lua/modules/shortcuts.vim
