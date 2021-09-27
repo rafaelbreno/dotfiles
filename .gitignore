@@ -1,23 +1,28 @@
-# ignore everything
-/*
+# Some randoms folders
+cef_user_data/
+coc/
+composer/
+discord/
+gtk-3.0/
+htop/
+Insomnia/
+JetBrains/
+lazygit/
+menus/
+neofetch/
+obs-studio/
+pulse/
+session/
+VirtualBox/
 
 # Exceptions
 !.gitignore
 
-!neofetch/
+# Nvim
+## Plug
+nvim/plugged/*
 
-# NVIM
-!nvim/lua/modules/*
-!nvim/spell/*
-!nvim/init.vim
-!nvim/coc-settings.json
-
-# ZSH
-!zsh/
-
-# Misc
-!README.md
-
-# Fonts
-!fonts/
+konq_history
+konquerorrc
+*.list
 
