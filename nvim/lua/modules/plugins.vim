@@ -26,6 +26,9 @@ Plug 'preservim/nerdcommenter'
 " NvimLSP
 Plug 'neovim/nvim-lspconfig'
 
+" Autocomplete:
+Plug 'nvim-lua/completion-nvim'
+
 " ----------------------------------------------------------------
 
 """ Programming Languages 
