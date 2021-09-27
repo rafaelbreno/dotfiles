@@ -22,4 +22,5 @@ runtime! lua/modules/options.lua
 runtime! lua/modules/util.lua
 runtime! lua/modules/mapping.vim
 runtime! lua/modules/statusline.lua
-"runtime! lua/modules/lsp.vim
+runtime! lua/modules/lsp.lua
+runtime! lua/modules/config.vim
