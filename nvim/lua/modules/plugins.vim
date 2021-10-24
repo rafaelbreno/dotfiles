@@ -35,21 +35,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 
 " NVIM-LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Plug 'neovim/nvim-lspconfig'
-" Install nvim-cmp
-"Plug 'hrsh7th/nvim-cmp'
-
-"" Install snippet engine (This example installs [hrsh7th/vim-vsnip](https://github.com/hrsh7th/vim-vsnip))
-"Plug 'hrsh7th/vim-vsnip'
-
-"" Install the buffer completion source
-"Plug 'hrsh7th/cmp-buffer'
-
-"" Package Manager
-"Plug 'wbthomason/packer.nvim'
-
-"" Snippet Engine
-"Plug 'L3MON4D3/LuaSnip'
 
 " Nerd:
 Plug 'scrooloose/nerdtree'
@@ -71,6 +56,9 @@ Plug 'cespare/vim-toml'
 
 " Elixir
 Plug 'elixir-editors/vim-elixir'
+
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
 
 " ----------------------------------------------------------------
 
@@ -98,6 +86,20 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_fmt_command = "goimports"
+
+" Haskell
+let g:haskell_classic_highlighting = 1
+let g:haskell_indent_if = 3
+let g:haskell_indent_case = 2
+let g:haskell_indent_let = 4
+let g:haskell_indent_where = 6
+let g:haskell_indent_before_where = 2
+let g:haskell_indent_after_bare_where = 2
+let g:haskell_indent_do = 3
+let g:haskell_indent_in = 1
+let g:haskell_indent_guard = 2
+let g:haskell_indent_case_alternative = 1
+let g:cabal_indent_section = 2
 
 " Theme
 colorscheme gruvbox
