@@ -31,6 +31,9 @@ Plug 'neovim/nvim-lspconfig'
 
 " Autocomplete:
 Plug 'nvim-lua/completion-nvim'
+" Telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " ----------------------------------------------------------------
 
