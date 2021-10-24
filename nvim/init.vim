@@ -22,6 +22,7 @@ runtime! lua/options.lua
 runtime! lua/mapping.vim
 runtime! lua/statusline.lua
 runtime! lua/config.vim
+runtime! lua/autocomplete.lua
 
 lua require("lsp_go")
 

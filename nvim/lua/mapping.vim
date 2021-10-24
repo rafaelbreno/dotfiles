@@ -89,10 +89,10 @@ noremap <F2>
 nnoremap <leader>r <cmd>:source $MYVIMRC<cr>
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-imap <tab> <Plug>(completion_smart_tab)
-imap <s-tab> <Plug>(completion_smart_s_tab)
+"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"imap <tab> <Plug>(completion_smart_tab)
+"imap <s-tab> <Plug>(completion_smart_s_tab)
 
 function! s:check_back_space() abort
   let col = col('.') - 1
