@@ -16,13 +16,13 @@ let g:loaded_spec         = 1
 
 
 " importing lua scripts
-runtime! lua/modules/plugins.vim
-runtime! lua/modules/keymaps.lua
-runtime! lua/modules/options.lua
-runtime! lua/modules/util.lua
-runtime! lua/modules/mapping.vim
-runtime! lua/modules/statusline.lua
-runtime! lua/modules/lsp.lua
-runtime! lua/modules/config.vim
+runtime! lua/plugins.vim
+runtime! lua/keymaps.lua
+runtime! lua/options.lua
+runtime! lua/mapping.vim
+runtime! lua/statusline.lua
+runtime! lua/config.vim
 
-autocmd BufWritePre *.go lua goimports(1000)
+lua require("lsp_go")
+
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting()

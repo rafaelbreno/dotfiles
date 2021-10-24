@@ -1,6 +1,9 @@
 " installing plugins
 call plug#begin("$HOME/.config/dotfiles/nvim/plugged")
 
+" Linter
+Plug 'mfussenegger/nvim-lint'
+
 """ Themes
 " Gruvbox:
 Plug 'morhetz/gruvbox'
