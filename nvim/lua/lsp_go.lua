@@ -1,20 +1,20 @@
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.gopls.setup{
-	cmd = {'gopls'},
-	-- for postfix snippets and analyzers
-	capabilities = require("util").capabilities,
-	    settings = {
-	      gopls = {
-		      experimentalPostfixCompletions = true,
-		      analyses = {
-		        unusedparams = true,
-		        shadow = true,
-		     },
-		     staticcheck = true,
-		    },
-	    },
-	on_attach = require("util").on_attach,
+  cmd = {'gopls'},
+  -- for postfix snippets and analyzers
+  capabilities = require("util").capabilities,
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+    },
+  },
+  on_attach = require("util").on_attach,
 }
 
   function goimports(timeoutms)
