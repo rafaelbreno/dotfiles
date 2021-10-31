@@ -42,12 +42,25 @@ Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
+" Pretty Error messages
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
+
 " ----------------------------------------------------------------
 
 """ Programming Languages 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
 
 " ----------------------------------------------------------------
 
 call plug#end()
 " finishing installing plugins
 
+lua << EOF
+  require("trouble").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
