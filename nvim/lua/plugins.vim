@@ -18,9 +18,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Git TIU
 Plug 'kdheepak/lazygit.nvim'
+Plug 'APZelos/blamer.nvim'
 
 " Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'tree-sitter/tree-sitter-haskell'
 
 " Nerd:
 Plug 'scrooloose/nerdtree'
@@ -28,6 +30,9 @@ Plug 'preservim/nerdcommenter'
 
 " NvimLSP
 Plug 'neovim/nvim-lspconfig'
+
+" Ale
+Plug 'dense-analysis/ale'
 
 " Autocomplete:
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -51,6 +56,16 @@ Plug 'folke/trouble.nvim'
 """ Programming Languages 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
+Plug 'neovimhaskell/haskell-vim'
+
+" Go
+Plug 'fatih/vim-go'
+
+" Markdown
+Plug 'ixru/nvim-markdown'
+
+" Rust
+Plug 'simrat39/rust-tools.nvim'
 
 " ----------------------------------------------------------------
 

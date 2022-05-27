@@ -1,15 +1,18 @@
 local nvim_lsp = require('lspconfig')
 
 nvim_lsp.gopls.setup{
-  cmd = {'gopls'},
+  cmd = {'gopls', 'serve'},
   -- for postfix snippets and analyzers
   capabilities = require("util").capabilities,
   settings = {
     gopls = {
-      experimentalPostfixCompletions = false,
+      experimentalPostfixCompletions = true,
+      usePlaceholders = true,
+      hoverKind = "FullDocumentation",
       analyses = {
         unusedparams = true,
         shadow = true,
+        unreachable = true,
       },
       staticcheck = true,
     },
@@ -17,10 +20,66 @@ nvim_lsp.gopls.setup{
   on_attach = require("util").on_attach,
 }
 
+nvim_lsp.solargraph.setup{
+  capabilities = require("util").capabilities,
+  settings = {
+    solargraph = {
+      commandPath = '$HOME/.asdf/shims/solargraph',
+      diagnostics = true,
+      completion = true
+    },
+  },
+  on_attach = require("util").on_attach,
+}
+
+local rustOpts = {
+    tools = {
+        autoSetHints = true,
+        hover_with_actions = true,
+        runnables = {
+            use_telescope = true
+        },
+        inlay_hints = {
+            show_parameter_hints = false,
+            parameter_hints_prefix = "",
+            other_hints_prefix = "",
+        },
+    },
+
+    -- all the opts to send to nvim-lspconfig
+    -- these override the defaults set by rust-tools.nvim
+    -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
+    server = {
+        -- on_attach is a callback called when the language server attachs to the buffer
+        -- on_attach = on_attach,
+        settings = {
+            -- to enable rust-analyzer settings visit:
+            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
+            ["rust-analyzer"] = {
+                -- enable clippy on save
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
+        }
+    },
+}
+
+require('rust-tools').setup(opts)
+
 nvim_lsp.hls.setup{
   cmd = {'haskell-language-server-wrapper', '--lsp'},
   capabilities = require("util").capabilities,
   on_attach = require("util").on_attach,
+  settings = {
+    haskell = {
+      hlintOn = true,
+      formatOnImportOn = true,
+      diagnosticsOnChange = true,
+      completionSnippetsOn = true,
+      formattingProvider = 'stylish-haskell',
+    },
+  },
 }
 
 function goimports(timeoutms)
