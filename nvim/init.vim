@@ -26,5 +26,5 @@ runtime! lua/autocomplete.lua
 runtime! lua/lsp_go.lua
 runtime! lua/tree-sitter.lua
 
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.go lua vim.lsp.buf.format{ async = true }
 autocmd BufWritePre *.go lua goimports(1000)
