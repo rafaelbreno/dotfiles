@@ -4,6 +4,9 @@ call plug#begin("$HOME/.config/dotfiles/nvim/plugged")
 " Linter
 Plug 'mfussenegger/nvim-lint'
 
+" Nice syntax colors
+Plug 'sheerun/vim-polyglot'
+
 """ Themes
 " Gruvbox:
 Plug 'morhetz/gruvbox'
