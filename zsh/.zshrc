@@ -41,6 +41,7 @@ export DOCKER_CLIENT_TIMEOUT=240
 export COMPOSE_HTTP_TIMEOUT=240
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH="$PATH:$HOME/.asdf/installs/php/*/.composer/vendor/bin/"
+export PATH="$PATH:$HOME/.local/bin"
 
 NPM_PACKAGES="~/.npm_packages"
 
