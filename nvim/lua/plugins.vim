@@ -1,5 +1,5 @@
 " installing plugins
-call plug#begin("$HOME/.config/dotfiles/nvim/plugged")
+call plug#begin("$HOME/.files/nvim/plugged")
 
 " Linter
 Plug 'mfussenegger/nvim-lint'
