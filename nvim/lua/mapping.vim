@@ -121,4 +121,4 @@ nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 nnoremap <leader>c za
 
 " JSON Formatting
-nnoremap <leader>j <cmd>%!jq<cr>
+au FileType json nnoremap <leader>j <cmd>%!jq<cr>
