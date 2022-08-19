@@ -57,6 +57,13 @@ Plug 'folke/trouble.nvim'
 " ----------------------------------------------------------------
 
 """ Programming Languages 
+
+" HTML
+Plug 'othree/html5.vim'
+
+" Javaescripto
+Plug 'pangloss/vim-javascript'
+
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 Plug 'neovimhaskell/haskell-vim'
@@ -65,10 +72,17 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go'
 
 " Markdown
-Plug 'ixru/nvim-markdown'
+"Plug 'ixru/nvim-markdown'
 
 " Rust
 Plug 'simrat39/rust-tools.nvim'
+
+" ----------------------------------------------------------------
+
+""" Frameworks/Libs
+
+" Svelte
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " ----------------------------------------------------------------
 
