@@ -1,28 +1,24 @@
-# Some randoms folders
-cef_user_data/
-coc/
-composer/
-discord/
-gtk-3.0/
-htop/
-Insomnia/
-JetBrains/
-lazygit/
-menus/
-neofetch/
-obs-studio/
-pulse/
-session/
-VirtualBox/
-
-# Exceptions
-!.gitignore
-
-# Nvim
-## Plug
-nvim/plugged/*
-
-konq_history
-konquerorrc
+/c*/
+/C*/
+/discord/
+/dlv/
+/ghc/
+/g*/
+/h*/
+/ibus/
+/Insomnia/
+/JetBrains/
+/k*/
+k*
+/lazygit/
 *.list
-
+/m*/
+/nvim/plugged/*
+/obs-studio/
+*.conf
+/p*/
+/s*/
+/u*/
+VirtualBox/
+p*
+t*
