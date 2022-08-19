@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local root_dir = require("lspconfig.util").root_pattern(...)
 
 nvim_lsp.gopls.setup{
   cmd = {'gopls', 'serve'},
@@ -10,17 +11,60 @@ nvim_lsp.gopls.setup{
       usePlaceholders = true,
       hoverKind = "FullDocumentation",
       analyses = {
-        unusedparams = true,
+        assign = true,
+        atomic = true,
+        bools = true,
+        composites = true,
+        copylocks = true,
+        fieldalignment = true,
+        httpresponse = true,
+        ifaceassert = true,
+        infertypeargs = true,
+        lostcancel = true,
+        nilness = true,
         shadow = true,
+        simplifycompositelit = true,
+        unusedwrite = true,
+        useany = true,
         unreachable = true,
+        unusedvariable = true,
+        fillstruct = true,
+        unusedparams = true,
       },
+      annotations = {
+        bounds = true,
+        escape = true,
+        inline = true,
+      },
+      codelenses = {
+        tidy = true,
+        run_vulncheck_exp = true,
+      },
+      diagnosticsDelay = "60ms", 
+      hoverKind = "FullDocumentation",
       staticcheck = true,
+      usePlaceholders = true,
     },
   },
   on_attach = require("util").on_attach,
 }
 
+nvim_lsp.ocamllsp.setup{
+  cmd = {'ocamllsp'},
+  filetypes = {'ocaml', 'ocaml.menhir', 'ocaml.interface', 'ocaml.ocamllex', 'reason', 'dune'},
+  root_dir = root_dir('*.opam', 'esy.json', 'package.json', '.git', 'dune-project', 'dune-workspace'),
+  capabilities = require("util").capabilities,
+  settings = {},
+  on_attach = require("util").on_attach,
+}
+
 nvim_lsp.tsserver.setup{
+  capabilities = require("util").capabilities,
+  settings = {},
+  on_attach = require("util").on_attach,
+}
+
+nvim_lsp.pyright.setup{
   capabilities = require("util").capabilities,
   settings = {},
   on_attach = require("util").on_attach,
@@ -58,14 +102,19 @@ local rustOpts = {
     server = {
         -- on_attach is a callback called when the language server attachs to the buffer
         -- on_attach = on_attach,
+        capabilities = require("util").capabilities,
+        on_attach = require("util").on_attach,
         settings = {
             -- to enable rust-analyzer settings visit:
             -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
             ["rust-analyzer"] = {
                 -- enable clippy on save
                 checkOnSave = {
-                    command = "clippy"
+                    command = "check"
                 },
+                cargo = {
+                  autoreload = "true"
+                }
             }
         }
     },
@@ -98,9 +147,13 @@ function goimports(timeoutms)
   -- See the implementation of the textDocument/codeAction callback
   -- (lua/vim/lsp/handler.lua) for how to do this properly.
   local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
-  if not result or #result == 0 then return end
+  if not result or #result == 0 then
+    return 
+  end
   local actions = result[1].result
-  if not actions then return end
+  if not actions then 
+    return 
+  end
   local action = actions[1]
 
   -- textDocument/codeAction can return either Command[] or CodeAction[]. If it
@@ -108,7 +161,7 @@ function goimports(timeoutms)
   -- should be executed first.
   if action.edit or type(action.command) == "table" then
     if action.edit then
-      vim.lsp.util.apply_workspace_edit(action.edit)
+      vim.lsp.util.apply_workspace_edit(action.edit, vim.lsp.client().offset_encoding)
     end
     if type(action.command) == "table" then
       vim.lsp.buf.execute_command(action.command)
