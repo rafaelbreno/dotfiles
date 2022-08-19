@@ -46,3 +46,7 @@ export PATH="$PATH:$HOME/.local/bin"
 NPM_PACKAGES="~/.npm_packages"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
+
+# Aliases
+## Neofetch
+alias nf='neofetch --config $HOME/.files/neofetch/config.conf'
