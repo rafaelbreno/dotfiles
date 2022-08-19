@@ -8,11 +8,10 @@ export PATH="$PATH:/usr/bin"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# NVIM init.vim path
 export XDG_CONFIG_HOME="$HOME/.config/dotfiles/"
 
-# Path to your oh-my-zsh installation.
-export MYVIMRC="$HOME/.config/dotfiles/nvim/init.vim"
+# NVIM init.vim path
+export MYVIMRC=".files/nvim/init.vim"
 
 # Kubectl autocomplete
 #autoload -Uz compinit
@@ -39,10 +38,8 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 export DOCKER_CLIENT_TIMEOUT=240
 export COMPOSE_HTTP_TIMEOUT=240
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-export PATH="$PATH:$HOME/.asdf/installs/php/*/.composer/vendor/bin/"
 export PATH="$PATH:$HOME/.local/bin"
 
-NPM_PACKAGES="~/.npm_packages"
+NPM_PACKAGES="$HOME/.npm_packages"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
