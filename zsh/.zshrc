@@ -11,7 +11,7 @@ export LANG=en_US.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config/dotfiles/"
 
 # NVIM init.vim path
-export MYVIMRC=".files/nvim/init.vim"
+export MYVIMRC="$HOME/.files/nvim/init.vim"
 
 # Kubectl autocomplete
 #autoload -Uz compinit
