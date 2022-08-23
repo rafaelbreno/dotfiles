@@ -64,8 +64,10 @@ Plug 'othree/html5.vim'
 " Javaescripto
 Plug 'pangloss/vim-javascript'
 
+" TypeEscripto
+Plug 'HerringtonDarkholme/yats.vim'
+
 " Haskell
-Plug 'neovimhaskell/haskell-vim'
 Plug 'neovimhaskell/haskell-vim'
 
 " Go

@@ -137,6 +137,19 @@ nvim_lsp.hls.setup{
   },
 }
 
+require'lspconfig'.svelte.setup{
+  cmd = {'svelteserver', '--stdio'},
+  filetypes = {'svelte'},
+  root_dir = root_dir('package.json', '.git'),
+  capabilities = require("util").capabilities,
+  on_attach = require("util").on_attach,
+  -- default values
+  --settings = {
+     --= {
+    --},
+  --},
+}
+
 function goimports(timeoutms)
   local context = { source = { organizeImports = true } }
   vim.validate { context = { context, "t", true } }

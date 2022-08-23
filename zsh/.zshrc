@@ -8,15 +8,16 @@ export PATH="$PATH:/usr/bin"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export XDG_CONFIG_HOME="$HOME/.config/dotfiles/"
-
 # NVIM init.vim path
 export MYVIMRC="$HOME/.files/nvim/init.vim"
 
+# XDG Home
+export XDG_CONFIG_HOME="$HOME/.files"
+
 # Kubectl autocomplete
-#autoload -Uz compinit
-#compinit
-#source <(kubectl completion zsh)
+autoload -Uz compinit
+compinit
+source <(kubectl completion zsh)
 
 
 # Set name of the theme to load --- if set to "random", it will
