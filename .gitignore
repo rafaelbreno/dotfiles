@@ -1,0 +1,29 @@
+# Ignore everything
+*
+# Except
+
+## root files
+!README.md
+!start.sh
+
+## nvim
+!nvim/
+!nvim/*/
+!nvim/spell/*
+!nvim/lua/*
+!nvim/lua/**/*
+
+## neofetch
+!neofetch/
+!neofetch/*
+
+## zsh
+!zsh/
+!zsh/*
+
+## scripts
+!scripts/
+!scripts/*
+
+#!lazygit/
+#!lazygit/**/*
