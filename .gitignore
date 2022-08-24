@@ -6,6 +6,14 @@
 !README.md
 !start.sh
 
+## lazygit
+!lazygit/
+!lazygit/config.yml
+
+## neofetch
+!neofetch/
+!neofetch/*
+
 ## nvim
 !nvim/
 !nvim/*/
@@ -13,17 +21,10 @@
 !nvim/lua/*
 !nvim/lua/**/*
 
-## neofetch
-!neofetch/
-!neofetch/*
-
-## zsh
-!zsh/
-!zsh/*
-
 ## scripts
 !scripts/
 !scripts/*
 
-#!lazygit/
-#!lazygit/**/*
+## zsh
+!zsh/
+!zsh/*
