@@ -2,6 +2,7 @@
 
 ## TODO
 ### Script
+- **ANSIBLE**
 - [ ] Auto install
   - [ ] `yay`
   - [ ] `zsh`

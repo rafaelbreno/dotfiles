@@ -17,6 +17,7 @@ nvim_lsp.gopls.setup{
         composites = true,
         copylocks = true,
         fieldalignment = true,
+        fillstruct = true,
         httpresponse = true,
         ifaceassert = true,
         infertypeargs = true,
@@ -28,7 +29,6 @@ nvim_lsp.gopls.setup{
         useany = true,
         unreachable = true,
         unusedvariable = true,
-        fillstruct = true,
         unusedparams = true,
       },
       annotations = {
