@@ -1,10 +1,7 @@
-""" NERDTree
-let NERDTreeShowHidden=1
-autocmd vimenter * NERDTree
-
-"NerdTreeToggle
-nmap <silent><leader>ne :NERDTree<cr>
-nmap <silent><leader>nt :NERDTreeToggle<cr>
+"NvimTree
+nmap <silent><leader>ne :NvimTreeFocus<cr>
+nmap <silent><leader>nt :NvimTreeToggle<cr>
+nmap <silent><leader>nr :NvimTreeRefresh<cr>
 
 " in terminal
 " move between window

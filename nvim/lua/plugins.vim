@@ -1,6 +1,9 @@
 " installing plugins
 call plug#begin("$HOME/.files/nvim/plugged")
 
+" File Explorer
+Plug 'kyazdani42/nvim-tree.lua'
+
 " Linter
 Plug 'mfussenegger/nvim-lint'
 
@@ -28,7 +31,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 Plug 'tree-sitter/tree-sitter-haskell'
 
 " Nerd:
-Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 
 " NvimLSP
