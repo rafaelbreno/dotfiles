@@ -35,7 +35,7 @@ require("nvim-tree").setup({
         -- open horizontally
         { key = "i", action = "split"},
         -- Focus on Folder
-        { key = "i", action = "split"},
+        --{ key = "i", action = "split"},
       },
     },
   },
