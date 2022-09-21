@@ -6,3 +6,6 @@ require "config/autocomplete";
 
 -- TreeSitter
 require "config/tree-sitter";
+
+-- Trouble
+require "config/trouble"

@@ -53,7 +53,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Pretty Error messages
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
 " ----------------------------------------------------------------
@@ -68,9 +67,6 @@ Plug 'pangloss/vim-javascript'
 
 " TypeEscripto
 Plug 'HerringtonDarkholme/yats.vim'
-
-" Haskell
-Plug 'neovimhaskell/haskell-vim'
 
 " Go
 Plug 'fatih/vim-go'
@@ -92,11 +88,3 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 call plug#end()
 " finishing installing plugins
-
-lua << EOF
-  require("trouble").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-EOF
