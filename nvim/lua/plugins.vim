@@ -7,9 +7,6 @@ Plug 'kyazdani42/nvim-tree.lua'
 " Linter
 Plug 'mfussenegger/nvim-lint'
 
-" Nice syntax colors
-Plug 'sheerun/vim-polyglot'
-
 """ Themes
 " Gruvbox:
 Plug 'morhetz/gruvbox'
@@ -24,20 +21,18 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Git TIU
 Plug 'kdheepak/lazygit.nvim'
+
+" Git Blamer (inline log)
 Plug 'APZelos/blamer.nvim'
 
 " Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'tree-sitter/tree-sitter-haskell'
 
 " Nerd:
 Plug 'preservim/nerdcommenter'
 
 " NvimLSP
 Plug 'neovim/nvim-lspconfig'
-
-" Ale
-Plug 'dense-analysis/ale'
 
 " Autocomplete:
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -70,9 +65,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " Go
 Plug 'fatih/vim-go'
-
-" Markdown
-"Plug 'ixru/nvim-markdown'
 
 " Rust
 Plug 'simrat39/rust-tools.nvim'
