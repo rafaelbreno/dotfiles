@@ -34,16 +34,12 @@ HIST_STAMPS="dd/mm/yyyy"
 # ---------------------------------------------- #
 
 # ZSH Setup
-## Sourcing
-export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
 
 ## Theme
 ZSH_THEME="robbyrussell"
 
 ## Plugins
-plugins=(git)
-plugins=(tmux)
+plugins=(git tmux golang)
 
 ## Options
 
@@ -59,6 +55,10 @@ if [ "$TMUX" = "" ]; then tmux; fi
 autoload -Uz compinit
 compinit
 source <(kubectl completion zsh)
+
+## Sourcing
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
 
 ## Aliases
 
