@@ -59,6 +59,7 @@ source <(kubectl completion zsh)
 ## Sourcing
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
+. $HOME/.asdf/asdf.sh
 
 ## Aliases
 
