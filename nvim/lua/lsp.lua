@@ -1,5 +1,7 @@
 local nvim_lsp = require('lspconfig')
-local root_dir = require("lspconfig.util").root_pattern(...)
+local util = require('lspconfig.util')
+local root_dir = util.root_pattern(...)
+local buf = require('buf/buf')
 
 nvim_lsp.gopls.setup{
   cmd = {'gopls', 'serve'},
@@ -148,6 +150,64 @@ require'lspconfig'.svelte.setup{
      --= {
     --},
   --},
+}
+
+require'lspconfig'.texlab.setup{
+  cmd = { 'texlab' },
+  filetypes = { 'tex', 'plaintex', 'bib' },
+  root_dir = function(fname)
+    return util.root_pattern '.latexmkrc'(fname) or util.find_git_ancestor(fname)
+  end,
+  single_file_support = true,
+  settings = {
+    texlab = {
+      rootDirectory = nil,
+      build = {
+        executable = 'latexmk',
+        args = { '-pdf', '-interaction=nonstopmode', '-synctex=1', '%f' },
+        onSave = false,
+        forwardSearchAfter = false,
+      },
+      auxDirectory = '.',
+      forwardSearch = {
+        executable = nil,
+        args = {},
+      },
+      chktex = {
+        onOpenAndSave = false,
+        onEdit = false,
+      },
+      diagnosticsDelay = 300,
+      latexFormatter = 'latexindent',
+      latexindent = {
+        ['local'] = nil, -- local is a reserved keyword
+        modifyLineBreaks = false,
+      },
+      bibtexFormatter = 'texlab',
+      formatterLineLength = 80,
+    },
+  },
+  commands = {
+    TexlabBuild = {
+      function()
+        buf.buf_build(0)
+      end,
+      description = 'Build the current buffer',
+    },
+    TexlabForward = {
+      function()
+        buf.buf_search(0)
+      end,
+      description = 'Forward search from current position',
+    },
+  },
+  docs = {
+    description = [[
+      https://github.com/latex-lsp/texlab
+      A completion engine built from scratch for (La)TeX.
+      See https://github.com/latex-lsp/texlab/wiki/Configuration for configuration options.
+    ]],
+  }
 }
 
 function goimports(timeoutms)

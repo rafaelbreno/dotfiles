@@ -78,5 +78,9 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " ----------------------------------------------------------------
 
+""" Latex
+
+" ----------------------------------------------------------------
+
 call plug#end()
 " finishing installing plugins
