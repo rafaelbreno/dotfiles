@@ -21,6 +21,10 @@ export DOCKER_CLIENT_TIMEOUT=240
 export COMPOSE_HTTP_TIMEOUT=240
 export PATH="$PATH:$HOME/.local/bin"
 
+### Programming Langs
+#### Rust
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
 ### NVIM init.vim path
 export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
 
