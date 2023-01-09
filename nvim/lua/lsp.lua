@@ -223,6 +223,9 @@ function goimports(timeoutms)
   if not result or #result == 0 then
     return 
   end
+  if result == nil then 
+    return
+  end
   if result[1].result == nil then 
     return
   end
