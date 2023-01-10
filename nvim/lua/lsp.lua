@@ -152,6 +152,14 @@ require'lspconfig'.svelte.setup{
   --},
 }
 
+require'lspconfig'.zls.setup{
+  cmd = {'zls'},
+  filetypes = {'zig', 'zir'},
+  root_dir = root_dir('package.json', '.git'),
+  capabilities = require("util").capabilities,
+  on_attach = require("util").on_attach,
+}
+
 require'lspconfig'.texlab.setup{
   cmd = { 'texlab' },
   filetypes = { 'tex', 'plaintex', 'bib' },

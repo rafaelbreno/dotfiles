@@ -69,6 +69,9 @@ Plug 'fatih/vim-go'
 " Rust
 Plug 'simrat39/rust-tools.nvim'
 
+" Zig
+Plug 'ziglang/zig.vim'
+
 " ----------------------------------------------------------------
 
 """ Frameworks/Libs
