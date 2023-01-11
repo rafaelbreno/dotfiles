@@ -5,6 +5,10 @@ vim.g.loaded_netrwPlugin = 1;
 require("nvim-tree").setup({
   auto_reload_on_write = true,
   open_on_setup = true,
+  git = {
+    enable = true,
+    ignore = false,
+  },
   renderer = {
     icons = {
       show = {
