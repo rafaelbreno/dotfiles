@@ -9,3 +9,6 @@ require "config/tree-sitter";
 
 -- Trouble
 require "config/trouble"
+
+-- Telescope
+require "config/telescope"
