@@ -63,6 +63,10 @@ Plug 'pangloss/vim-javascript'
 " TypeEscripto
 Plug 'HerringtonDarkholme/yats.vim'
 
+" PHP
+Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
+
 " Go
 Plug 'fatih/vim-go'
 

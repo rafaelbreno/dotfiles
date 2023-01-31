@@ -160,6 +160,14 @@ require'lspconfig'.zls.setup{
   on_attach = require("util").on_attach,
 }
 
+require'lspconfig'.phpactor.setup{
+  cmd = { 'phpactor', 'language-server' },
+  filetypes = {'php'},
+  root_dir = root_dir('composer.json', '.git'),
+  capabilities = require("util").capabilities,
+  on_attach = require("util").on_attach,
+}
+
 require'lspconfig'.texlab.setup{
   cmd = { 'texlab' },
   filetypes = { 'tex', 'plaintex', 'bib' },
