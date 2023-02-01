@@ -43,7 +43,7 @@ HIST_STAMPS="dd/mm/yyyy"
 ZSH_THEME="robbyrussell"
 
 ## Plugins
-plugins=(git tmux golang)
+plugins=(git tmux golang docker docker-compose)
 
 ## Options
 
