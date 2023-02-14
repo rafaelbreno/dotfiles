@@ -21,13 +21,5 @@ colorscheme gruvbox
 
 let g:airline_theme='gruvbox'
 
-" Ale
-let g:ale_linters = {
-\   'go': ['revive']
-\}
-
-let g:ale_hover_to_preview = 1
-let g:ale_set_ballons = 1
-
 " Svelte
 let g:svelte_preprocessors = ['typescript']

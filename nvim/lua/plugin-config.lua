@@ -12,3 +12,6 @@ require "config/trouble"
 
 -- Telescope
 require "config/telescope"
+
+-- Ale
+require "config/ale"
