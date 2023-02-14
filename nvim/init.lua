@@ -1,28 +1,19 @@
 ---- Bootstrapping
 
 -- Plugins/Plug
-require "lua/plugins";
+require "plugins";
 
 -- Options
-require "lua/options";
+require "options";
 
 -- Mapping
-require "lua/mapping";
+require "mapping";
 
 -- Status Line
-require "lua/statusline";
+require "statusline";
 
 -- Autocomplete
-require "lua/autocomplete";
-
--- Autocomplete
-require "lua/lsp";
-
--- TreeSitter
-require "lua/tree-sitter";
+require "lsp";
 
 -- Plugin Config
-require "lua/plugin-config";
-
--- Config
-require "lua/config";
+require "plugin-config";
