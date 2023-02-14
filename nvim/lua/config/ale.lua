@@ -1,7 +1,7 @@
 local g = vim.g;
 
 g.ale_linters = {
-  go = ['revive']
+  go = {'revive'},
 };
 
 g.ale_hover_to_preview = 1
