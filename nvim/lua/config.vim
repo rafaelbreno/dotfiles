@@ -7,16 +7,6 @@ let g:lazygit_floating_window_use_plenary = 0
 let g:lazygit_use_custom_config_file_path = 1 " config file path is evaluated if this value is 1
 let g:lazygit_config_file_path = '~/.files/lazygit/config.yml' " custom config file path
 
-
-" GitLens
-let g:blamer_enabled = 1
-let g:blamer_delay = 200
-let g:blamer_show_in_visual_modes = 1
-let g:blamer_show_in_insert_modes = 1
-let g:blamer_prefix = ' > '
-let g:blamer_template = '<committer>, <committer-time> • <summary>'
-let g:blamer_date_format = '%d/%m/%y'
-
 colorscheme gruvbox
 
 let g:airline_theme='gruvbox'

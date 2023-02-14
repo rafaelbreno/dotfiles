@@ -15,3 +15,6 @@ require "config/telescope"
 
 -- Ale
 require "config/ale"
+
+-- GitLens
+require "config/gitlens"
