@@ -21,3 +21,6 @@ require "config/gitlens"
 
 -- LazyGit
 require "config/lazygit"
+
+-- Theme
+require "config/theme"
