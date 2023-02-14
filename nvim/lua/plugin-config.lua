@@ -18,3 +18,6 @@ require "config/ale"
 
 -- GitLens
 require "config/gitlens"
+
+-- LazyGit
+require "config/lazygit"
