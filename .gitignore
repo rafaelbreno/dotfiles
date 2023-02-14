@@ -16,6 +16,7 @@
 
 ## nvim
 !nvim/
+!nvim/*.*
 !nvim/*/
 !nvim/spell/*
 !nvim/lua/*
