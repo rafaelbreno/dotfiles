@@ -1,10 +1,7 @@
-""" NERDTree
-let NERDTreeShowHidden=1
-autocmd vimenter * NERDTree
-
-"NerdTreeToggle
-nmap <silent><leader>ne :NERDTree<cr>
-nmap <silent><leader>nt :NERDTreeToggle<cr>
+"NvimTree
+nmap <silent><leader>ne :NvimTreeFocus<cr>
+nmap <silent><leader>nt :NvimTreeToggle<cr>
+nmap <silent><leader>nr :NvimTreeRefresh<cr>
 
 " in terminal
 " move between window
@@ -112,7 +109,13 @@ noremap <silent> <leader>lg :LazyGit<CR>
 " Trouble
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 nnoremap <leader>xw <cmd>TroubleToggle lsp_workspace_diagnostics<cr>
-nnoremap <leader>xd <cmd>TroubleToggle lsp_document_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+
+" Toggle Folding
+nnoremap <leader>c za
+
+" JSON Formatting
+au FileType json nnoremap <leader>j <cmd>%!jq<cr>

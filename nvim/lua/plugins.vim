@@ -1,11 +1,11 @@
 " installing plugins
-call plug#begin("$HOME/.config/dotfiles/nvim/plugged")
+call plug#begin("$HOME/.files/nvim/plugged")
+
+" File Explorer
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Linter
 Plug 'mfussenegger/nvim-lint'
-
-" Nice syntax colors
-Plug 'sheerun/vim-polyglot'
 
 """ Themes
 " Gruvbox:
@@ -21,21 +21,18 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Git TIU
 Plug 'kdheepak/lazygit.nvim'
+
+" Git Blamer (inline log)
 Plug 'APZelos/blamer.nvim'
 
 " Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'tree-sitter/tree-sitter-haskell'
 
 " Nerd:
-Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 
 " NvimLSP
 Plug 'neovim/nvim-lspconfig'
-
-" Ale
-Plug 'dense-analysis/ale'
 
 " Autocomplete:
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -51,34 +48,46 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Pretty Error messages
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
 " ----------------------------------------------------------------
 
 """ Programming Languages 
-" Haskell
-Plug 'neovimhaskell/haskell-vim'
-Plug 'neovimhaskell/haskell-vim'
+
+" HTML
+Plug 'othree/html5.vim'
+
+" Javaescripto
+Plug 'pangloss/vim-javascript'
+
+" TypeEscripto
+Plug 'HerringtonDarkholme/yats.vim'
+
+" PHP
+Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
 
 " Go
 Plug 'fatih/vim-go'
 
-" Markdown
-Plug 'ixru/nvim-markdown'
-
 " Rust
 Plug 'simrat39/rust-tools.nvim'
+
+" Zig
+Plug 'ziglang/zig.vim'
+
+" ----------------------------------------------------------------
+
+""" Frameworks/Libs
+
+" Svelte
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+
+" ----------------------------------------------------------------
+
+""" Latex
 
 " ----------------------------------------------------------------
 
 call plug#end()
 " finishing installing plugins
-
-lua << EOF
-  require("trouble").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
-EOF

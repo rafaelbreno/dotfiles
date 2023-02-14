@@ -1,28 +1,30 @@
-# Some randoms folders
-cef_user_data/
-coc/
-composer/
-discord/
-gtk-3.0/
-htop/
-Insomnia/
-JetBrains/
-lazygit/
-menus/
-neofetch/
-obs-studio/
-pulse/
-session/
-VirtualBox/
+# Ignore everything
+*
+# Except
 
-# Exceptions
-!.gitignore
+## root files
+!README.md
+!start.sh
 
-# Nvim
-## Plug
-nvim/plugged/*
+## lazygit
+!lazygit/
+!lazygit/config.yml
 
-konq_history
-konquerorrc
-*.list
+## neofetch
+!neofetch/
+!neofetch/*
 
+## nvim
+!nvim/
+!nvim/*/
+!nvim/spell/*
+!nvim/lua/*
+!nvim/lua/**/*
+
+## scripts
+!scripts/
+!scripts/*
+
+## zsh
+!zsh/
+!zsh/*

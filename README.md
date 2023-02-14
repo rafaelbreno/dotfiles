@@ -1,5 +1,20 @@
 # dotfiles
 
+## TODO
+### Script
+- **ANSIBLE**
+- [ ] Auto install
+  - [ ] `yay`
+  - [ ] `zsh`
+  - [ ] `oh-my-zsh`
+  - [ ] `asdf`
+    - [ ] `golang`
+    - [ ] `rust`
+    - [ ] `nodejs`
+  - [ ] `tree-sitter`
+  - [ ] `nvim`
+  - [ ] 
+
 ### Installing
 #### General
 - > git clone git@github.com:rafaelbreno/dotfiles.git

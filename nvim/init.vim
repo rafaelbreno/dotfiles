@@ -14,17 +14,16 @@ let g:loaded_matchit      = 1
 let g:loaded_matchparen   = 1
 let g:loaded_spec         = 1
 
-
 " importing lua scripts
 runtime! lua/plugins.vim
-runtime! lua/keymaps.lua
 runtime! lua/options.lua
 runtime! lua/mapping.vim
 runtime! lua/statusline.lua
-runtime! lua/config.vim
 runtime! lua/autocomplete.lua
-runtime! lua/lsp_go.lua
+runtime! lua/lsp.lua
 runtime! lua/tree-sitter.lua
+runtime! lua/plugin-config.lua
+runtime! lua/config.vim
 
 autocmd BufWritePre *.go lua vim.lsp.buf.format{ async = true }
-autocmd BufWritePre *.go lua goimports(1000)
+autocmd BufWritePre *.go lua goimports(200)
