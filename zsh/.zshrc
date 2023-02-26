@@ -66,7 +66,9 @@ source $ZSH/oh-my-zsh.sh
 . $HOME/.asdf/asdf.sh
 
 ## Aliases
-#
+### Langs
+alias zig="~/prog/zig/build/stage3/bin/zig"
+
 ## Neofetch
 alias nf='neofetch --config $HOME/.files/neofetch/config.conf'
 
