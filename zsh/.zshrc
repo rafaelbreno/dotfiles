@@ -11,6 +11,7 @@ export GOPATH=$HOME/go
 
 ### Path
 export PATH="$PATH:/usr/local/bin"
+#export PATH="$PATH:$HOME/prog/zig/build/stage3/bin"
 export PATH="$PATH:/usr/bin"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$GOPATH/bin
@@ -67,9 +68,9 @@ source $ZSH/oh-my-zsh.sh
 
 ## Aliases
 ### Langs
-alias zig="~/prog/zig/build/stage3/bin/zig"
 
 ## Neofetch
 alias nf='neofetch --config $HOME/.files/neofetch/config.conf'
+alias bun='~/git/rafaelbreno/bun/packages/debug-bun-linux-x64/bun-debug'
 
 # ---------------------------------------------- #
