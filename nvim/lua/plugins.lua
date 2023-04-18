@@ -27,7 +27,12 @@ Plug('kdheepak/lazygit.nvim')
 Plug('APZelos/blamer.nvim')
 
 -- Syntax Highlighting
+---- TreeSitter
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})  -- We recommend updating the parsers on update
+
+---- TODO:
+Plug 'folke/todo-comments.nvim'
+
 
 -- Nerd:
 Plug('preservim/nerdcommenter')
