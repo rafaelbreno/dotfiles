@@ -68,6 +68,10 @@ set({'n'}, '<Down>', '<CMD>resize   -2<CR>', sOpt)
 set({'n'}, '<leader>w', ':w<cr>', sOpt)
 set({'n'}, '<leader>q', ':wq<cr>', sOpt)
 
+-- Reload
+set({'n'}, '<leader>rl', ':LspRestart<cr>', sOpt)
+set({'n'}, '<leader>rc', ':source $MYVIMRC<cr>', sOpt)
+
 -- remove annoying exmode
 set({'n'}, 'Q', '<Nop>', nOpt)
 set({'n'}, 'q:', '<Nop>', nOpt)
