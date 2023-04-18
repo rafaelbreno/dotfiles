@@ -27,7 +27,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 ### NVIM init.vim path
-export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.vim"
+export MYVIMRC="$XDG_CONFIG_HOME/nvim/init.lua"
 
 ## Language Support
 export LC_ALL=en_US.UTF-8
