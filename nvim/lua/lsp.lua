@@ -140,7 +140,7 @@ nvim_lsp.hls.setup{
   },
 }
 
-nvim_lsp.lua_ls.setup{
+nvim_lsp.lua_lsp.setup{
   filetypes = {'lua'},
   settings = {
     Lua = {
