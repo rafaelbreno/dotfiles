@@ -1,6 +1,5 @@
 local nvim_lsp = require('lspconfig')
 local util = require('lspconfig.util')
-local root_dir = util.root_pattern(...)
 local buf = require('buf/buf')
 
 nvim_lsp.gopls.setup{
@@ -10,7 +9,6 @@ nvim_lsp.gopls.setup{
   settings = {
     gopls = {
       experimentalPostfixCompletions = true,
-      usePlaceholders = true,
       hoverKind = "FullDocumentation",
       analyses = {
         assign = true,
@@ -42,8 +40,7 @@ nvim_lsp.gopls.setup{
         tidy = true,
         run_vulncheck_exp = true,
       },
-      diagnosticsDelay = "60ms", 
-      hoverKind = "FullDocumentation",
+      diagnosticsDelay = "60ms",
       staticcheck = true,
       usePlaceholders = true,
     },
@@ -54,7 +51,7 @@ nvim_lsp.gopls.setup{
 nvim_lsp.ocamllsp.setup{
   cmd = {'ocamllsp'},
   filetypes = {'ocaml', 'ocaml.menhir', 'ocaml.interface', 'ocaml.ocamllex', 'reason', 'dune'},
-  root_dir = root_dir('*.opam', 'esy.json', 'package.json', '.git', 'dune-project', 'dune-workspace'),
+  root_dir = util.root_pattern('*.opam', 'esy.json', 'package.json', '.git', 'dune-project', 'dune-workspace'),
   capabilities = require("util").capabilities,
   settings = {},
   on_attach = require("util").on_attach,
@@ -88,7 +85,7 @@ nvim_lsp.solargraph.setup{
 local rustOpts = {
     tools = {
         autoSetHints = true,
-        hover_with_actions = true,
+        --hover_with_actions = true,
         runnables = {
             use_telescope = true
         },
@@ -123,7 +120,7 @@ local rustOpts = {
     },
 }
 
-require('rust-tools').setup(opts)
+require('rust-tools').setup(rustOpts)
 
 nvim_lsp.hls.setup{
   cmd = {'haskell-language-server-wrapper', '--lsp'},
@@ -140,36 +137,38 @@ nvim_lsp.hls.setup{
   },
 }
 
---nvim_lsp.lua_ls.setup{
-  --filetypes = {'lua'},
-  --settings = {
-    --Lua = {
-      --runtime = {
-        ---- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        --version = 'LuaJIT',
-      --},
-      --diagnostics = {
-        ---- Get the language server to recognize the `vim` global
-        --globals = {'vim'},
-      --},
-      --workspace = {
-        ---- Make the server aware of Neovim runtime files
-        --library = vim.api.nvim_get_runtime_file("", true),
-      --},
-      ---- Do not send telemetry data containing a randomized but unique identifier
-      --telemetry = {
-        --enable = false,
-      --},
-    --},
-  --},
-  --on_attach = require("util").on_attach,
-  --capabilities = require("util").capabilities,
---}
+nvim_lsp.lua_ls.setup{
+  cmd = {'lua-language-server'},
+  filetypes = {'lua'},
+  root_dir = util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git"),
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+  on_attach = require("util").on_attach,
+  capabilities = require("util").capabilities,
+}
 
-require'lspconfig'.svelte.setup{
+nvim_lsp.svelte.setup{
   cmd = {'svelteserver', '--stdio'},
   filetypes = {'svelte'},
-  root_dir = root_dir('package.json', '.git'),
+  root_dir = util.root_pattern('package.json', '.git'),
   capabilities = require("util").capabilities,
   on_attach = require("util").on_attach,
   -- default values
@@ -182,7 +181,7 @@ require'lspconfig'.svelte.setup{
 require'lspconfig'.zls.setup{
   cmd = {'zls'},
   filetypes = {'zig', 'zir'},
-  root_dir = root_dir('package.json', '.git'),
+  root_dir = util.root_pattern('package.json', '.git'),
   capabilities = require("util").capabilities,
   on_attach = require("util").on_attach,
 }
@@ -190,7 +189,7 @@ require'lspconfig'.zls.setup{
 require'lspconfig'.phpactor.setup{
   cmd = { 'phpactor', 'language-server' },
   filetypes = {'php'},
-  root_dir = root_dir('composer.json', '.git'),
+  root_dir = util.root_pattern('composer.json', '.git'),
   capabilities = require("util").capabilities,
   on_attach = require("util").on_attach,
 }
@@ -246,7 +245,7 @@ require'lspconfig'.texlab.setup{
   }
 }
 
-function goimports(timeoutms)
+function GoImports(timeoutms)
   local context = { source = { organizeImports = true } }
   vim.validate { context = { context, "t", true } }
 
@@ -255,19 +254,19 @@ function goimports(timeoutms)
 
   -- See the implementation of the textDocument/codeAction callback
   -- (lua/vim/lsp/handler.lua) for how to do this properly.
-  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
+  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeoutms)
   if not result or #result == 0 then
-    return 
-  end
-  if result == nil then 
     return
   end
-  if result[1].result == nil then 
+  if result == nil then
+    return
+  end
+  if result[1].result == nil then
     return
   end
   local actions = result[1].result
-  if not actions then 
-    return 
+  if not actions then
+    return
   end
   local action = actions[1]
 
