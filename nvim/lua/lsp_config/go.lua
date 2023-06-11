@@ -1,0 +1,45 @@
+require'lspconfig'.gopls.setup{
+  cmd = {'gopls', 'serve'},
+  -- for postfix snippets and analyzers
+  capabilities = require("util").capabilities,
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      hoverKind = "FullDocumentation",
+      analyses = {
+        assign = true,
+        atomic = true,
+        bools = true,
+        composites = true,
+        copylocks = true,
+        fieldalignment = true,
+        fillstruct = true,
+        httpresponse = true,
+        ifaceassert = true,
+        infertypeargs = true,
+        lostcancel = true,
+        nilness = true,
+        shadow = true,
+        simplifycompositelit = true,
+        unusedwrite = true,
+        useany = true,
+        unreachable = true,
+        unusedvariable = true,
+        unusedparams = true,
+      },
+      annotations = {
+        bounds = true,
+        escape = true,
+        inline = true,
+      },
+      codelenses = {
+        tidy = true,
+        run_vulncheck_exp = true,
+      },
+      diagnosticsDelay = "60ms",
+      staticcheck = true,
+      usePlaceholders = true,
+    },
+  },
+  on_attach = require("util").on_attach,
+}

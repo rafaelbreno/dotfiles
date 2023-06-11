@@ -2,168 +2,29 @@ local nvim_lsp = require('lspconfig')
 local util = require('lspconfig.util')
 local buf = require('buf/buf')
 
-nvim_lsp.gopls.setup{
-  cmd = {'gopls', 'serve'},
-  -- for postfix snippets and analyzers
-  capabilities = require("util").capabilities,
-  settings = {
-    gopls = {
-      experimentalPostfixCompletions = true,
-      hoverKind = "FullDocumentation",
-      analyses = {
-        assign = true,
-        atomic = true,
-        bools = true,
-        composites = true,
-        copylocks = true,
-        fieldalignment = true,
-        fillstruct = true,
-        httpresponse = true,
-        ifaceassert = true,
-        infertypeargs = true,
-        lostcancel = true,
-        nilness = true,
-        shadow = true,
-        simplifycompositelit = true,
-        unusedwrite = true,
-        useany = true,
-        unreachable = true,
-        unusedvariable = true,
-        unusedparams = true,
-      },
-      annotations = {
-        bounds = true,
-        escape = true,
-        inline = true,
-      },
-      codelenses = {
-        tidy = true,
-        run_vulncheck_exp = true,
-      },
-      diagnosticsDelay = "60ms",
-      staticcheck = true,
-      usePlaceholders = true,
-    },
-  },
-  on_attach = require("util").on_attach,
-}
+-- Zig
+require('lsp_config/zig');
 
-nvim_lsp.ocamllsp.setup{
-  cmd = {'ocamllsp'},
-  filetypes = {'ocaml', 'ocaml.menhir', 'ocaml.interface', 'ocaml.ocamllex', 'reason', 'dune'},
-  root_dir = util.root_pattern('*.opam', 'esy.json', 'package.json', '.git', 'dune-project', 'dune-workspace'),
-  capabilities = require("util").capabilities,
-  settings = {},
-  on_attach = require("util").on_attach,
+-- Golang
+require('lsp_config/go');
 
-}
+-- OCaml
+require('lsp_config/ocaml');
 
-nvim_lsp.tsserver.setup{
-  capabilities = require("util").capabilities,
-  settings = {},
-  on_attach = require("util").on_attach,
-}
+-- TypeScript
+require('lsp_config/typescript');
 
-nvim_lsp.pyright.setup{
-  capabilities = require("util").capabilities,
-  settings = {},
-  on_attach = require("util").on_attach,
-}
+-- Python
+require('lsp_config/python');
 
-nvim_lsp.solargraph.setup{
-  capabilities = require("util").capabilities,
-  settings = {
-    solargraph = {
-      commandPath = '$HOME/.asdf/shims/solargraph',
-      diagnostics = true,
-      completion = true
-    },
-  },
-  on_attach = require("util").on_attach,
-}
+-- Haskell
+require('lsp_config/haskell');
 
-local rustOpts = {
-    tools = {
-        autoSetHints = true,
-        --hover_with_actions = true,
-        runnables = {
-            use_telescope = true
-        },
-        inlay_hints = {
-            show_parameter_hints = false,
-            parameter_hints_prefix = "",
-            other_hints_prefix = "",
-        },
-    },
+-- Lua
+require('lsp_config/lua');
 
-    -- all the opts to send to nvim-lspconfig
-    -- these override the defaults set by rust-tools.nvim
-    -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
-    server = {
-        -- on_attach is a callback called when the language server attachs to the buffer
-        -- on_attach = on_attach,
-        capabilities = require("util").capabilities,
-        on_attach = require("util").on_attach,
-        settings = {
-            -- to enable rust-analyzer settings visit:
-            -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
-            ["rust-analyzer"] = {
-                -- enable clippy on save
-                checkOnSave = {
-                    command = "check"
-                },
-                cargo = {
-                  autoreload = "true"
-                }
-            }
-        }
-    },
-}
-
-require('rust-tools').setup(rustOpts)
-
-nvim_lsp.hls.setup{
-  cmd = {'haskell-language-server-wrapper', '--lsp'},
-  capabilities = require("util").capabilities,
-  on_attach = require("util").on_attach,
-  settings = {
-    haskell = {
-      hlintOn = true,
-      formatOnImportOn = true,
-      diagnosticsOnChange = true,
-      completionSnippetsOn = true,
-      formattingProvider = 'stylish-haskell',
-    },
-  },
-}
-
-nvim_lsp.lua_ls.setup{
-  cmd = {'lua-language-server'},
-  filetypes = {'lua'},
-  root_dir = util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git"),
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-  on_attach = require("util").on_attach,
-  capabilities = require("util").capabilities,
-}
+-- Rust
+require('lsp_config/rust');
 
 nvim_lsp.svelte.setup{
   cmd = {'svelteserver', '--stdio'},
@@ -178,13 +39,6 @@ nvim_lsp.svelte.setup{
   --},
 }
 
-require'lspconfig'.zls.setup{
-  cmd = {'zls'},
-  filetypes = {'zig', 'zir'},
-  root_dir = util.root_pattern('package.json', '.git'),
-  capabilities = require("util").capabilities,
-  on_attach = require("util").on_attach,
-}
 
 require'lspconfig'.phpactor.setup{
   cmd = { 'phpactor', 'language-server' },
