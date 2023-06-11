@@ -20,7 +20,7 @@ require'lspconfig'.zls.setup{
       inlay_hints_hide_redundant_param_names_last_token = false,
       operator_completions = true,
       warn_style = true,
-      highlight_global_var_declarations = true,
+      highlight_global_var_declarations = false,
       dangerous_comptime_experiments_do_not_enable = true,
       include_at_in_builtins = true,
       skip_std_references = false,
