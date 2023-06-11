@@ -2,6 +2,10 @@
 
 ## Env variables
 
+## Builds
+export ZIG_PATH="$HOME/prog/zig/build/stage3/bin"
+export ZLS_PATH="$HOME/prog/zls/zig-out/bin"
+
 ### XDG Home
 export XDG_CONFIG_HOME="$HOME/.files"
 
@@ -20,7 +24,11 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 export DOCKER_CLIENT_TIMEOUT=240
 export COMPOSE_HTTP_TIMEOUT=240
+#export PATH="$PATH:$HOME/prog/llvm-project-16/build-release/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$ZIG_PATH"
+export PATH="$PATH:$ZLS_PATH"
+#export PATH="$PATH:$HOME/local/llvm16-release/bin"
 
 ### Programming Langs
 #### Rust
