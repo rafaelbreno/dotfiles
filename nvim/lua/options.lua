@@ -4,6 +4,7 @@ o.autoindent     = true -- enable autoindent
 o.autowrite      = true -- autowrite buffer when it's not focused
 o.backupcopy     = "yes" -- fix weirdness for stuff that replaces the entire file when hot reloading
 o.backup         = false -- disable backup
+o.clipboard      = "unnamedplus" -- allow clipboard
 o.completeopt    = {
 	"menu",
 	"menuone",
