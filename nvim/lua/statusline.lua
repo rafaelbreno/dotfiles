@@ -132,7 +132,7 @@ M.get_line_col = function()
 end
 
 M.lsp_progress = function()
-  local lsp = vim.lsp.util.get_progress_messages()[1]
+  local lsp = vim.lsp.status()[1]
   if lsp then
     local name = lsp.name or ""
     local msg = lsp.message or ""
