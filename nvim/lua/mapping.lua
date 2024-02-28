@@ -12,6 +12,7 @@ g.maplocalleader = ','; -- Map Local Leader
 ---- Declarations 
 -- Set Function
 local set = vim.keymap.set;
+local au = vim.api.nvim_create_autocmd;
 
 -- silent option - <silent>
 local sOpt = { silent = true };
@@ -88,7 +89,12 @@ set({'v'}, '<A-k>', ':m \'<-2<CR>gv=gv', nOpt)
 set({'v'}, '<', '<gv', nOpt)
 set({'v'}, '>', '>gv', nOpt)
 
+-- JSON Indent
+local jq_callback = function ()
+    set('n', '<leader>jq', '<cmd>%!jq<cr>', snOpt)
+end
 
---
-set({'n'}, ' ', ' ', sOpt)
-
+au("FileType", {
+  pattern = "json",
+  callback = jq_callback,
+})
