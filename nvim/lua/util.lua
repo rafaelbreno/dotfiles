@@ -118,7 +118,8 @@ Util.lsp_on_init = function()
 end
 
 -- configure mappings for lsp attachment
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+--local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 Util.capabilities = capabilities

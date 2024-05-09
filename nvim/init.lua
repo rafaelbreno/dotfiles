@@ -16,7 +16,7 @@ require "statusline";
 require "lsp";
 
 -- Plugin Config
-require "plugin-config";
+require "plugins-config";
 
 -- STD Config
 require "std-plugins";

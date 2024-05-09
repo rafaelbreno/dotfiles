@@ -4,8 +4,6 @@ require "config/nvim-tree";
 -- Autocomplete
 require "config/autocomplete";
 
--- TODO: 
-
 -- TreeSitter
 require "config/tree-sitter";
 require "config/todo-comments";
@@ -27,3 +25,6 @@ require "config/lazygit"
 
 -- Theme
 require "config/theme"
+
+-- Snippets
+require "config/snippets"

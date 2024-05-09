@@ -3,7 +3,7 @@ local util = require('lspconfig.util')
 require'lspconfig'.zls.setup{
   cmd = {'zls'},
   filetypes = {'zig', 'zir'},
-  root_dir = util.root_pattern('package.json', '.git'),
+  root_dir = util.root_pattern('build.zig', '.git'),
   capabilities = util.capabilities,
   on_attach = util.on_attach,
   settings = {
