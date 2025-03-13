@@ -7,7 +7,7 @@ export ZIG_PATH="$HOME/prog/zig/build/stage3/bin"
 export ZLS_PATH="$HOME/prog/zls/zig-out/bin"
 
 ### XDG Home
-export XDG_CONFIG_HOME="$HOME/.files"
+export XDG_CONFIG_HOME="$HOME/github.com/rafaelbreno/dotfiles"
 
 ### Languages
 NPM_PACKAGES="$HOME/.npm_packages"
@@ -74,7 +74,7 @@ source <(kubectl completion zsh)
 ## Sourcing
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
-. $HOME/.asdf/asdf.sh
+#. $HOME/.asdf/asdf.sh
 
 ## Aliases
 ### Langs

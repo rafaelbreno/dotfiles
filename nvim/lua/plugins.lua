@@ -1,6 +1,6 @@
 local Plug = vim.fn['plug#'];
 
-vim.call('plug#begin', '$HOME/.files/nvim/plugged')
+vim.call('plug#begin', '$HOME/github.com/rafaelbreno/dotfiles/nvim/plugged')
 
 -- File Explorer
 Plug('kyazdani42/nvim-tree.lua')
@@ -33,7 +33,6 @@ Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})  -- We recommend
 ---- TODO:
 Plug 'folke/todo-comments.nvim'
 
-
 -- Nerd:
 Plug('preservim/nerdcommenter')
 
@@ -48,7 +47,7 @@ Plug('hrsh7th/cmp-cmdline')
 Plug('hrsh7th/nvim-cmp')
 
 -- Snippets
-Plug('L3MON4D3/LuaSnip')
+Plug('l3mon4d3/luasnip')
 Plug('saadparwaiz1/cmp_luasnip')
 
 -- Telescope
