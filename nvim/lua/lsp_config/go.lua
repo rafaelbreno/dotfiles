@@ -1,115 +1,82 @@
+-- nvim/lua/lsp_config/go.lua
 local lspconfig = require('lspconfig')
-local util = require('lspconfig.util')
 
-lspconfig.gopls.setup{
-  cmd = {'gopls', 'serve'},
-  filetypes = {'go', 'gomod', 'gowork', 'gotmpl'},
-  capabilities = require("util").capabilities,
-  root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
-  settings = {
-    gopls = {
-      analyses = {
-        assign = true,
-        atomic = true,
-        bools = true,
-        composites = true,
-        copylocks = true,
-        fieldalignment = true,
-        fillstruct = true,
-        httpresponse = true,
-        ifaceassert = true,
-        infertypeargs = true,
-        lostcancel = true,
-        nilness = true,
-        shadow = true,
-        simplifycompositelit = true,
-        unusedwrite = true,
-        useany = true,
-        unreachable = true,
-        unusedvariable = true,
-        unusedparams = true,
-      },
-      experimentalPostfixCompletions = true,
-      completeUnimported = true,
-      staticcheck = true,
-      usePlaceholders = true,
-      hoverKind = "FullDocumentation",
-      linkTarget = "pkg.go.dev",
-      vulncheck = "Imports",
-      annotations = {
-        bounds = true,
-        escape = true,
-        inline = true,
-      },
-      codelenses = {
-        tidy = true,
-        run_vulncheck_exp = true,
-      },
-      diagnosticsDelay = "60ms",
-    },
-  },
-  on_attach = function (client, bufnr)
-    -- Call the common on_attach function
-    require("util").on_attach(client, bufnr)
-
-    -- Additional Go-specific settings
-    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    local opts = { noremap=true, silent=true }
-
-    -- Go specific keymaps
-    buf_set_keymap('n', '<leader>goc', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', '<leader>goi', '<cmd>lua require("go.implement").impl()<CR>', opts)
-
-     -- Add hovering documentation with Ctrl+K specifically for Golang
-    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    
-    -- Enable inlay hints if available (requires Neovim 0.10+)
-    if client.server_capabilities.inlayHintProvider and vim.fn.has('nvim-0.10') == 1 then
-      vim.lsp.inlay_hint.enable(true)
-    end  
-
-    -- Automatically format Go files on save
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*.go",
-      callback = function()
-        vim.lsp.buf.format({ async = false })
-      end,
-    })
-  end,
-}
-
--- Function to run GoImports on save (this organizes imports)
-function GoImports(timeout_ms)
-  local context = { source = { organizeImports = true } }
-  vim.validate { context = { context, "t", true } }
-  
-  local params = vim.lsp.util.make_range_params()
-  params.context = context
-  
-  -- See the implementation of the textDocument/codeAction callback
-  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
-  if not result or next(result) == nil then return end
-  
-  local actions = result[1].result
-  if not actions then return end
-  
-  local action = actions[1]
-  if action.edit or type(action.command) == "table" then
-    if action.edit then
-      vim.lsp.util.apply_workspace_edit(action.edit, "utf-8")
+-- Check if gopls exists in the system
+local function check_gopls()
+  local handle = io.popen("which gopls")
+  if handle then
+    local result = handle:read("*a")
+    handle:close()
+    if result and result ~= "" then
+      print("Found gopls at: " .. result)
+      return true
+    else
+      print("WARNING: gopls not found in PATH. Go autocompletion will not work.")
+      print("Run 'go install golang.org/x/tools/gopls@latest' to install it.")
+      return false
     end
-    if type(action.command) == "table" then
-      vim.lsp.buf.execute_command(action.command)
-    end
-  else
-    vim.lsp.buf.execute_command(action)
   end
+  return false
 end
 
--- Setup an autocommand to run GoImports on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
-  callback = function()
-    GoImports(1000)
-  end,
-})
+if check_gopls() then
+  lspconfig.gopls.setup {
+    cmd = {'gopls', 'serve'},
+    filetypes = {'go', 'gomod', 'gowork', 'gotmpl'},
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+        usePlaceholders = true,
+        completeUnimported = true,
+        matcher = "fuzzy",
+        experimentalPostfixCompletions = true,
+        hoverKind = "FullDocumentation",
+      },
+    },
+    init_options = {
+      usePlaceholders = true,
+    },
+    on_attach = function(client, bufnr)
+      -- Call the common on_attach function
+      require("util").on_attach(client, bufnr)
+      
+      -- Go-specific keymaps
+      local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+      local opts = { noremap=true, silent=true }
+      
+      -- Add <C-k> hover specifically for Go
+      buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+      
+      -- Print a message confirming Go LSP setup
+      print("Go LSP attached to buffer")
+    end,
+    capabilities = require("util").capabilities
+  }
+end
+
+-- Add debug command
+vim.api.nvim_create_user_command('GoLSPDebug', function()
+  local gopls_running = false
+  for _, client in pairs(vim.lsp.get_active_clients()) do
+    if client.name == "gopls" then
+      print("gopls is running as client id: " .. client.id)
+      gopls_running = true
+      break
+    end
+  end
+  
+  if not gopls_running then
+    print("gopls is NOT running as an LSP client")
+  end
+  
+  -- Check if gopls binary exists
+  check_gopls()
+  
+  -- Check capabilities
+  local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+  print("Completion capabilities configured: " .. vim.inspect(cmp_capabilities.textDocument.completion ~= nil))
+end, {})

@@ -20,3 +20,5 @@ require "plugins-config";
 
 -- STD Config
 require "std-plugins";
+
+--require "config/autocomplete_debug"
