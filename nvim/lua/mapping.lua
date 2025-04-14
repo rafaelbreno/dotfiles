@@ -37,9 +37,9 @@ set({'n'}, '<leader>fb', '<cmd>Telescope buffers<cr>', snOpt)
 set({'n'}, '<leader>fh', '<cmd>Telescope help_tags<cr>', snOpt)
 
 -- Trouble
-set({'n'}, '<leader>xx', '<cmd>TroubleToggle<cr>', snOpt)
+set({'n'}, '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', snOpt)
 set({'n'}, '<leader>xw', '<cmd>TroubleToggle lsp_workspace_diagnostics<cr>', snOpt)
-set({'n'}, '<leader>xd', '<cmd>TroubleToggle document_diagnostics<cr>', snOpt)
+set({'n'}, '<leader>xd', '<cmd>Trouble diagnostics toggle focus=false filter.buf=0<cr>', snOpt)
 set({'n'}, '<leader>xq', '<cmd>TroubleToggle quickfix<cr>', snOpt)
 set({'n'}, '<leader>xl', '<cmd>TroubleToggle loclist<cr>', snOpt)
 set({'n'}, 'gR', '<cmd>TroubleToggle lsp_references<cr>', snOpt)

@@ -48,8 +48,8 @@ if check_gopls() then
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
       local opts = { noremap=true, silent=true }
       
-      -- Add <C-k> hover specifically for Go
-      buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+      -- Add <C-i> hover specifically for Go
+      buf_set_keymap('n', '<C-i>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
       
       -- Print a message confirming Go LSP setup
       print("Go LSP attached to buffer")
