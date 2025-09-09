@@ -3,8 +3,8 @@
 ## Env variables
 
 ## Builds
-export ZIG_PATH="$HOME/prog/zig/build/stage3/bin"
-export ZLS_PATH="$HOME/prog/zls/zig-out/bin"
+export ZIG_PATH="$HOME/github.com/ziglang/zig/build/stage3/bin"
+export ZLS_PATH="$HOME/github.com/zigtools/zls/zig-out/bin"
 
 ### XDG Home
 export XDG_CONFIG_HOME="$HOME/github.com/rafaelbreno/dotfiles"
@@ -19,7 +19,6 @@ export GOPATH=$HOME/go
 
 ### Path
 export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:$HOME/github.com/ziglang/zig/build/stage3/bin"
 export PATH="$PATH:/usr/bin"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$XDG_CONFIG_HOME/bin
@@ -29,12 +28,10 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 export DOCKER_CLIENT_TIMEOUT=240
 export COMPOSE_HTTP_TIMEOUT=240
-#export PATH="$PATH:$HOME/prog/llvm-project-16/build-release/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.bun/bin"
 export PATH="$PATH:$ZIG_PATH"
 export PATH="$PATH:$ZLS_PATH"
-#export PATH="$PATH:$HOME/local/llvm16-release/bin"
 
 ### Programming Langs
 #### Rust
@@ -59,7 +56,7 @@ HIST_STAMPS="dd/mm/yyyy"
 ZSH_THEME="robbyrussell"
 
 ## Plugins
-plugins=(git tmux golang docker docker-compose)
+plugins=(git tmux golang docker docker-compose zig-shell-completions)
 
 ## Options
 
