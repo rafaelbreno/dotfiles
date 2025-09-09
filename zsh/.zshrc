@@ -9,15 +9,20 @@ export ZLS_PATH="$HOME/prog/zls/zig-out/bin"
 ### XDG Home
 export XDG_CONFIG_HOME="$HOME/github.com/rafaelbreno/dotfiles"
 
+## LLVM
+export PATH="/opt/llvm/bin:$PATH"
+export MANPATH="/opt/llvm/share/man:$MANPATH"
+
 ### Languages
 NPM_PACKAGES="$HOME/.npm_packages"
 export GOPATH=$HOME/go
 
 ### Path
 export PATH="$PATH:/usr/local/bin"
-#export PATH="$PATH:$HOME/prog/zig/build/stage3/bin"
+export PATH="$PATH:$HOME/github.com/ziglang/zig/build/stage3/bin"
 export PATH="$PATH:/usr/bin"
 export PATH=$PATH:$HOME/bin
+export PATH=$PATH:$XDG_CONFIG_HOME/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH="$PATH:$NPM_PACKAGES/bin"
