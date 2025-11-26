@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# This script adds an 'upstream' remote to a forked Git repository.
+# It automatically checks for the original repository under the 'rancher' or 'k3s-io' GitHub organizations
+# and adds the remote using the SSH URL format (e.g., git@github.com:owner/repo.git).
+
+# --- Configuration ---
+# An array of potential GitHub owners for the upstream repository.
+readonly UPSTREAM_OWNERS=("rancher" "k3s-io")
+
+# --- Main Logic ---
+
+# 1. Ensure the script is run from within a Git repository.
+if ! git rev-parse --is-inside-work-tree &> /dev/null; then
+    echo "❌ Error: This script must be run inside a Git repository."
+    exit 1
+fi
+
+# 2. Check if the 'upstream' remote already exists to avoid errors.
+if git remote get-url upstream &> /dev/null; then
+    echo "ℹ️ Remote 'upstream' already exists. No action taken."
+    git remote -v
+    exit 0
+fi
+
+# 3. Get the 'origin' remote URL to extract the repository name.
+origin_url=$(git config --get remote.origin.url)
+if [[ -z "$origin_url" ]]; then
+    echo "❌ Error: Could not find the 'origin' remote URL."
+    exit 1
+fi
+
+# Extract the repository name from the URL (works for both HTTPS and SSH URLs).
+repo_name=$(basename "$origin_url" .git)
+echo "🔍 Repository name detected as '$repo_name'."
+
+# 4. Loop through the potential owners to find a valid upstream repository.
+for owner in "${UPSTREAM_OWNERS[@]}"; do
+    # Construct the upstream URL in SSH format.
+    upstream_url="git@github.com:${owner}/${repo_name}.git"
+    echo "Checking for upstream at: ${upstream_url}"
+
+    # Use 'git ls-remote' to check if the URL points to a valid Git repository
+    # without downloading any data. The '--exit-code' flag makes it return 0 on success.
+    # This requires your SSH keys to be configured correctly with GitHub.
+    if git ls-remote --exit-code "$upstream_url" &> /dev/null; then
+        echo "✅ Upstream found! Adding remote..."
+        # Add the remote using the SSH URL.
+        git remote add upstream "$upstream_url"
+        echo "🎉 Successfully added 'upstream' remote with SSH URL:"
+        git remote -v
+        exit 0 # Exit successfully after adding the remote.
+    fi
+done
+
+# 5. If the loop completes without finding a valid remote, inform the user.
+echo "❌ Error: Could not find an upstream repository for '${repo_name}' with owners: ${UPSTREAM_OWNERS[*]}."
+exit 1

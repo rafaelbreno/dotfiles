@@ -132,16 +132,25 @@ M.get_line_col = function()
 end
 
 M.lsp_progress = function()
-  local lsp = vim.lsp.util.get_progress_messages()[1]
-  if lsp then
-    local name = lsp.name or ""
-    local msg = lsp.message or ""
-    local percentage = lsp.percentage or 0
-    local title = lsp.title or ""
-    return string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, percentage)
+  if not vim.lsp.status then
+    return ""
+  end
+  
+  local status = vim.lsp.status()
+  if not status or #status == 0 then
+    return ""
   end
 
-  return ""
+  local lsp = status[1]
+  if not lsp then
+    return ""
+  end
+
+  local name = lsp.name or ""
+  local msg = lsp.message or ""
+  local percentage = lsp.percentage or 0
+  local title = lsp.title or ""
+  return string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, percentage)
 end
 
 M.set_active = function(self)

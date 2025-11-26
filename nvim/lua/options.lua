@@ -4,6 +4,7 @@ o.autoindent     = true -- enable autoindent
 o.autowrite      = true -- autowrite buffer when it's not focused
 o.backupcopy     = "yes" -- fix weirdness for stuff that replaces the entire file when hot reloading
 o.backup         = false -- disable backup
+o.clipboard      = "unnamedplus" -- allow clipboard
 o.completeopt    = {
 	"menu",
 	"menuone",
@@ -60,7 +61,7 @@ o.pumheight      = 10 -- limit completion items
 o.re             = 0 -- set regexp engine to auto
 o.relativenumber = true -- enable relativenumber
 o.scrolloff      = 2 -- make scrolling better
-o.shell          = "/usr/bin/bash" -- use bash instead of zsh
+o.shell          = "/bin/bash" -- use bash instead of zsh
 o.shiftwidth     = 2 -- set indentation width
 o.shortmess      = "csa" -- disable some stuff on shortmess
 o.showmode       = false -- don't show mode

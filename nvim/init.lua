@@ -1,0 +1,24 @@
+---- Bootstrapping
+
+-- Plugins/Plug
+require "plugins";
+
+-- Options
+require "options";
+
+-- Mapping
+require "mapping";
+
+-- Status Line
+require "statusline";
+
+-- Autocomplete
+require "lsp";
+
+-- Plugin Config
+require "plugins-config";
+
+-- STD Config
+require "std-plugins";
+
+--require "config/autocomplete_debug"
