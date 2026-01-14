@@ -15,6 +15,7 @@ export MANPATH="/opt/llvm/share/man:$MANPATH"
 
 ### Languages
 NPM_PACKAGES="$HOME/.npm_packages"
+YARN_BIN_PATH="$HOME/.yarn/bin"
 export GOPATH=$HOME/go
 
 ### Path
@@ -32,6 +33,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.bun/bin"
 export PATH="$PATH:$ZIG_PATH"
 export PATH="$PATH:$ZLS_PATH"
+export PATH="$PATH:$YARN_BIN_PATH"
 
 ### Programming Langs
 #### Rust
@@ -56,7 +58,7 @@ HIST_STAMPS="dd/mm/yyyy"
 ZSH_THEME="robbyrussell"
 
 ## Plugins
-plugins=(git tmux golang docker docker-compose zig-shell-completions)
+plugins=(git tmux golang docker docker-compose zig-shell-completions rust)
 
 ## Options
 

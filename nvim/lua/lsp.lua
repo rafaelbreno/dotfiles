@@ -25,6 +25,9 @@ require('lsp_config/lua');
 -- Rust
 require('lsp_config/rust');
 
+-- Yaml
+require('lsp_config/yaml');
+
 nvim_lsp.svelte.setup{
   cmd = {'svelteserver', '--stdio'},
   filetypes = {'svelte'},
