@@ -8,7 +8,6 @@ local function check_gopls()
     local result = handle:read("*a")
     handle:close()
     if result and result ~= "" then
-      print("Found gopls at: " .. result)
       return true
     else
       print("WARNING: gopls not found in PATH. Go autocompletion will not work.")

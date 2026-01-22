@@ -10,9 +10,6 @@ require('lsp_config/go');
 -- OCaml
 require('lsp_config/ocaml');
 
--- TypeScript
-require('lsp_config/typescript');
-
 -- Python
 require('lsp_config/python');
 

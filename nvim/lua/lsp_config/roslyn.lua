@@ -1,5 +1,3 @@
-local lspconfig = require('lspconfig')
-
 vim.lsp.config("roslyn", {
     cmd = {
         "dotnet",
