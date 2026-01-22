@@ -28,6 +28,9 @@ require('lsp_config/rust');
 -- Yaml
 require('lsp_config/yaml');
 
+-- Roslyn
+require('lsp_config/roslyn');
+
 nvim_lsp.svelte.setup{
   cmd = {'svelteserver', '--stdio'},
   filetypes = {'svelte'},

@@ -28,3 +28,6 @@ require "config/theme"
 
 -- Snippets
 require "config/snippets"
+
+-- Roslyn C#
+require "config/roslyn"

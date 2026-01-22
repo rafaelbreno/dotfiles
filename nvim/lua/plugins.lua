@@ -67,6 +67,9 @@ Plug('othree/html5.vim')
 -- Javaescripto
 Plug('pangloss/vim-javascript')
 
+-- C# Roslyn
+Plug('seblyng/roslyn.nvim')
+
 -- TypeEscripto
 Plug('HerringtonDarkholme/yats.vim')
 
