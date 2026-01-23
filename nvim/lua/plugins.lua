@@ -3,7 +3,7 @@ local Plug = vim.fn['plug#'];
 vim.call('plug#begin', '$HOME/github.com/rafaelbreno/dotfiles/nvim/plugged')
 
 -- File Explorer
-Plug('kyazdani42/nvim-tree.lua')
+Plug('nvim-tree/nvim-tree.lua')
 
 -- Linter
 Plug('mfussenegger/nvim-lint')

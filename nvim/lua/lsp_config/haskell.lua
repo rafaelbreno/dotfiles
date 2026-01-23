@@ -1,4 +1,4 @@
-require'lspconfig'.hls.setup{
+vim.lsp.config("hls", {
   cmd = {'haskell-language-server-wrapper', '--lsp'},
   capabilities = require("util").capabilities,
   on_attach = require("util").on_attach,
@@ -11,4 +11,4 @@ require'lspconfig'.hls.setup{
       formattingProvider = 'stylish-haskell',
     },
   },
-}
+})

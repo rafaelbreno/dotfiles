@@ -1,6 +1,6 @@
 local util = require('lspconfig.util')
 
-require'lspconfig'.lua_ls.setup{
+vim.lsp.config("lua_ls", {
   cmd = {'lua-language-server'},
   filetypes = {'lua'},
   root_dir = util.root_pattern(".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml", "selene.yml", ".git"),
@@ -26,4 +26,4 @@ require'lspconfig'.lua_ls.setup{
   },
   on_attach = require("util").on_attach,
   capabilities = require("util").capabilities,
-}
+})

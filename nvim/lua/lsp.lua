@@ -19,37 +19,11 @@ require('lsp_config/haskell');
 -- Lua
 require('lsp_config/lua');
 
--- Rust
-require('lsp_config/rust');
-
 -- Yaml
 require('lsp_config/yaml');
 
 -- Roslyn
 require('lsp_config/roslyn');
-
-nvim_lsp.svelte.setup{
-  cmd = {'svelteserver', '--stdio'},
-  filetypes = {'svelte'},
-  root_dir = util.root_pattern('package.json', '.git'),
-  capabilities = require("util").capabilities,
-  on_attach = require("util").on_attach,
-  -- default values
-  --settings = {
-     --= {
-    --},
-  --},
-}
-
-
-require'lspconfig'.phpactor.setup{
-  cmd = { 'phpactor', 'language-server' },
-  filetypes = {'php'},
-  root_dir = util.root_pattern('composer.json', '.git'),
-  capabilities = require("util").capabilities,
-  on_attach = require("util").on_attach,
-}
-
 
 function GoImports(timeoutms)
   local context = { source = { organizeImports = true } }

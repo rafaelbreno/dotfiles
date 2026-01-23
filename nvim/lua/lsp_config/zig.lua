@@ -1,6 +1,6 @@
 local util = require('lspconfig.util')
 
-require'lspconfig'.zls.setup{
+vim.lsp.config("zls", {
   cmd = {'zls'},
   filetypes = {'zig', 'zir', 'zon'},
   root_dir = util.root_pattern('build.zig', '.git'),
@@ -29,4 +29,4 @@ require'lspconfig'.zls.setup{
       record_session = false,
     }
   }
-}
+})

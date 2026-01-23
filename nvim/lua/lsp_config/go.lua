@@ -19,7 +19,7 @@ local function check_gopls()
 end
 
 if check_gopls() then
-  lspconfig.gopls.setup {
+  vim.lsp.config("gopls", {
     cmd = {'gopls', 'serve'},
     filetypes = {'go', 'gomod', 'gowork', 'gotmpl'},
     settings = {
@@ -42,19 +42,19 @@ if check_gopls() then
     on_attach = function(client, bufnr)
       -- Call the common on_attach function
       require("util").on_attach(client, bufnr)
-      
+
       -- Go-specific keymaps
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
       local opts = { noremap=true, silent=true }
-      
+
       -- Add <C-i> hover specifically for Go
       buf_set_keymap('n', '<C-i>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-      
+
       -- Print a message confirming Go LSP setup
       print("Go LSP attached to buffer")
     end,
     capabilities = require("util").capabilities
-  }
+  })
 end
 
 -- Add debug command
