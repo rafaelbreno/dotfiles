@@ -64,3 +64,13 @@ function GoImports(timeoutms)
     vim.lsp.buf.execute_command(action)
   end
 end
+
+vim.lsp.enable({
+  "gopls",
+  "lua_ls",
+  "pyright",
+  "zls",
+  "ocamllsp",
+  "yamlls",
+  "hls",
+})
