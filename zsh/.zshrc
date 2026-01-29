@@ -16,6 +16,7 @@ export MANPATH="/opt/llvm/share/man:$MANPATH"
 ### Languages
 NPM_PACKAGES="$HOME/.npm_packages"
 YARN_BIN_PATH="$HOME/.yarn/bin"
+export PATH="$PATH:$HOME/.dotnet/tools"
 export GOPATH=$HOME/go
 
 ### Path
