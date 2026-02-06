@@ -17,7 +17,7 @@ local au = vim.api.nvim_create_autocmd;
 -- silent option - <silent>
 local sOpt = { silent = true };
 -- No Remap option - <noremap>
-local nOpt = { silent = true };
+local nOpt = { noremap = true };
 -- <silent> & <noremap>
 local snOpt = { silent = true, noremap = true };
 
@@ -72,6 +72,16 @@ set({'n'}, '<leader>q', ':wq<cr>', sOpt)
 -- Reload
 set({'n'}, '<leader>rl', ':LspRestart<cr>', sOpt)
 set({'n'}, '<leader>rc', ':source $MYVIMRC<cr>', sOpt)
+
+-- Fold
+set({'n'}, '<leader>z', 'za', snOpt) -- Fold toggle
+set({'n'}, '<leader>Z', function()
+  if vim.wo.foldlevel > 0 then
+    vim.cmd('normal! zM')  -- Close all
+  else
+    vim.cmd('normal! zR')  -- Open all
+  end
+end, snOpt)
 
 -- remove annoying exmode
 set({'n'}, 'Q', '<Nop>', nOpt)
