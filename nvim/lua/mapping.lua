@@ -56,14 +56,14 @@ set({'n'}, '<C-k>', '<C-w><C-k>')
 set({'n'}, '<C-l>', '<C-w><C-l>')
 
 -- Resize Terminal
-set({'t'}, '<Left> ', '<C-><C-n>:vertical resize +2<CR>', sOpt)
-set({'t'}, '<Right>', '<C-><C-n>:vertical resize -2<CR>', sOpt)
-set({'t'}, '<Up>', '<C-><C-n>:resize   +2<CR>', sOpt)
-set({'t'}, '<Down>', '<C-><C-n>:resize   -2<CR>', sOpt)
-set({'n'}, '<Left>', '<CMD>vertical resize +2<CR>', sOpt)
-set({'n'}, '<Right>', '<CMD>vertical resize -2<CR>', sOpt)
-set({'n'}, '<Up>', '<CMD>resize   +2<CR>', sOpt)
-set({'n'}, '<Down>', '<CMD>resize   -2<CR>', sOpt)
+set({'t'}, '<C-Left> ', '<C-><C-n>:vertical resize +2<CR>', sOpt)
+set({'t'}, '<C-Right>', '<C-><C-n>:vertical resize -2<CR>', sOpt)
+set({'t'}, '<C-Up>', '<C-><C-n>:resize   +2<CR>', sOpt)
+set({'t'}, '<C-Down>', '<C-><C-n>:resize   -2<CR>', sOpt)
+set({'n'}, '<C-Left>', '<CMD>vertical resize +2<CR>', sOpt)
+set({'n'}, '<C-Right>', '<CMD>vertical resize -2<CR>', sOpt)
+set({'n'}, '<C-Up>', '<CMD>resize   +2<CR>', sOpt)
+set({'n'}, '<C-Down>', '<CMD>resize   -2<CR>', sOpt)
 
 -- Save/Exit
 set({'n'}, '<leader>w', ':w<cr>', sOpt)
