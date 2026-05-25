@@ -26,7 +26,6 @@ vim.lsp.enable({
   "gopls",
   "lua_ls",
   "pyright",
-  "zls",
   "ocamllsp",
   "yamlls",
   "hls",
