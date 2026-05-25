@@ -5,4 +5,5 @@ g.ale_linters = {
 };
 
 g.ale_hover_to_preview = 1
+g.ale_disable_lsp = 1
 g.ale_set_ballons      = 1

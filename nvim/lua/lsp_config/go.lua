@@ -40,7 +40,7 @@ if check_gopls() then
       local opts = { noremap=true, silent=true }
 
       -- Print a message confirming Go LSP setup
-      print("Go LSP attached to buffer")
+      vim.notify("gopls attached", vim.log.levels.DEBUG)
     end,
     capabilities = require("util").capabilities
   })

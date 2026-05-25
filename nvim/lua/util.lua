@@ -176,21 +176,25 @@ Util.on_attach = function(client, bufnr)
     vim.api.nvim_set_hl(0, "LspReferenceWrite", { bg = "#3c3836", bold = true })
   end
 
-  -- Configure hover window settings to use pretty borders
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover, {
-      border = "rounded",
-      width = 60
-    }
-  )
-  
-  -- Configure signature help window
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-    vim.lsp.handlers.signature_help, {
-      border = "rounded",
-      width = 60
-    }
-  )
+  -- Configure hover window
+  vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+    if not result then return end
+    return vim.lsp.util.open_floating_preview(
+      vim.split(result.contents, "\n"),
+      "markdown",
+      { border = "rounded", width = 60 }
+    )
+  end
+
+  -- Configure signature help window  
+  vim.lsp.handlers["textDocument/signatureHelp"] = function(_, result, ctx, config)
+    if not result or not result.signatures then return end
+    return vim.lsp.util.open_floating_preview(
+      vim.split(result.contents or "", "\n"),
+      "markdown",
+      { border = "rounded", width = 60 }
+    )
+  end
 end
 
 return Util
