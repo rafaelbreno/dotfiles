@@ -109,10 +109,6 @@ Util.borders = {
   -- {"█", "Bordaa"}
 }
 
---Util.lsp_on_attach = function()
-  --require("modules.lsp.mappings").lsp_mappings()
---end
-
 Util.lsp_on_init = function()
   print "Language Server Client successfully started!"
 end
@@ -133,10 +129,9 @@ Util.capabilities = capabilities
 -- Improved on_attach function with better keybindings
 Util.on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr })
 
   -- Mappings.
   local opts = { noremap = true, silent = true }
@@ -147,7 +142,7 @@ Util.on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<C-i>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts) -- Duplicate for <C-i>
+  buf_set_keymap('n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>', opts) -- Duplicate for <C-i>
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<CR>', opts)
@@ -167,13 +162,13 @@ Util.on_attach = function(client, bufnr)
 
   -- Set autocommands conditional on server_capabilities
   if client.server_capabilities.documentHighlightProvider then
-    vim.api.nvim_exec([[
+    vim.api.nvim_exec2([[
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]], false)
+    ]], { output = false })
 
     -- Add highlight groups
     vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = "#3c3836", bold = true })

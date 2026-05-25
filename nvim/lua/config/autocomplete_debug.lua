@@ -41,7 +41,7 @@ end
 
 -- Function to check if the Go LSP server is running
 function M.check_go_lsp()
-  local clients = vim.lsp.get_active_clients()
+  local clients = vim.lsp.get_clients()
   local gopls_running = false
   
   for _, client in ipairs(clients) do
