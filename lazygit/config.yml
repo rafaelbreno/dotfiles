@@ -95,7 +95,7 @@ git:
         useConfig: false
         externalDiffCommand: ""
     commit:
-        signOff: false
+        signOff: true
         autoWrapCommitMessage: true
         autoWrapWidth: 72
     merging:
