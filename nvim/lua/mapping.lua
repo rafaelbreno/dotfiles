@@ -65,6 +65,9 @@ set({'n'}, '<C-Right>', '<CMD>vertical resize -2<CR>', sOpt)
 set({'n'}, '<C-Up>', '<CMD>resize   +2<CR>', sOpt)
 set({'n'}, '<C-Down>', '<CMD>resize   -2<CR>', sOpt)
 
+-- Toggle Wrap
+set({'n'}, '<leader>tw', ':set wrap!<cr>', snOpt)
+
 -- Save/Exit
 set({'n'}, '<leader>w', ':w<cr>', sOpt)
 set({'n'}, '<leader>q', ':wq<cr>', sOpt)
