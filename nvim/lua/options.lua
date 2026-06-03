@@ -50,6 +50,7 @@ o.inccommand     = "split" -- incrementally show result of command
 o.joinspaces     = false
 o.laststatus     = 2 -- always enable statusline
 o.lazyredraw     = true -- lazyredraw to make macro faster
+o.linebreak      = true -- make linebreaks better
 o.list           = true -- display listchars
 o.listchars      = {
 	eol = "↲",
