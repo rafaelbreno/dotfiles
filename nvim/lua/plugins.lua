@@ -57,6 +57,9 @@ Plug('nvim-telescope/telescope.nvim')
 -- Pretty Error messages
 Plug('folke/trouble.nvim')
 
+-- Copilot
+Plug('github/copilot.vim')
+
 ----------------------------------------------------------------
 
 ------ Programming Languages 

@@ -22,6 +22,9 @@ require('lsp_config/yaml');
 -- Roslyn
 require('lsp_config/roslyn');
 
+-- postgres
+require('lsp_config/postgres');
+
 vim.lsp.enable({
   "gopls",
   "lua_ls",
@@ -29,4 +32,5 @@ vim.lsp.enable({
   "ocamllsp",
   "yamlls",
   "hls",
+  "postgres",
 })

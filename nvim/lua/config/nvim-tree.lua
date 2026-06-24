@@ -105,6 +105,7 @@ require("nvim-tree").setup({
   sort_by = "name",
   view = {
     side = "left",
+    width = 60,
   },
 })
 

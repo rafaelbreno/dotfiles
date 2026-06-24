@@ -21,6 +21,7 @@ export GOPATH=$HOME/go
 
 ### Path
 export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/usr/bin"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$XDG_CONFIG_HOME/bin
@@ -87,5 +88,13 @@ source $ZSH/oh-my-zsh.sh
 ## Neofetch
 alias nf='neofetch --config $HOME/.files/neofetch/config.conf'
 alias bun='$HOME/.bun/bin/bun'
+
+## kubectl
+alias k='kubectl'
+alias kgp='kubectl get pods'
+alias kgs='kubectl get svc'
+alias kgn='kubectl get nodes'
+export do='--dry-run=client -o yaml'
+# Usage: k run nginx --image=nginx $do > pod.yaml
 
 # ---------------------------------------------- #
