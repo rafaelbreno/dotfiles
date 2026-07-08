@@ -1,12 +1,9 @@
 local util = require('util')
 
-vim.lsp.config("postgres", {
-  cmd       = { 'postgres-language-server', '--stdio' },
+vim.lsp.config('postgres_lsp', {
+  cmd       = { 'postgres-language-server', 'lsp-proxy' },
   filetypes = { 'sql' },
-  root_dir  = function(bufnr)
-    return vim.fs.root(bufnr, { '.git' })
-      or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
-  end,
+  root_markers = { 'postgres-language-server.jsonc' },
   capabilities = util.capabilities,
   on_attach    = util.on_attach,
 })

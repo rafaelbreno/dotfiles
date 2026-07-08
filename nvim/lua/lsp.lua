@@ -25,12 +25,20 @@ require('lsp_config/roslyn');
 -- postgres
 require('lsp_config/postgres');
 
+-- TS/JS
+require('lsp_config/ts');
+
+-- Astro
+require('lsp_config/astro');
+
 vim.lsp.enable({
+  "astro",
   "gopls",
-  "lua_ls",
-  "pyright",
-  "ocamllsp",
-  "yamlls",
   "hls",
-  "postgres",
+  "lua_ls",
+  "ocamllsp",
+  "postgres_lsp",
+  "pyright",
+  "ts_ls",
+  "yamlls",
 })
